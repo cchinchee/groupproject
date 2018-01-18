@@ -1,38 +1,38 @@
 <%= form_for User.new, url: users_path do |form| %>
       
-    <div class="input-group">
+    <div class="input-group form-group">
         <%= form.text_field :first_name, placeholder: 'First Name', class:"form-control"%>
     </div>
 
-    <div class="input-group">
+    <div class="input-group form-group">
         <%= form.text_field :last_name, placeholder: 'Last Name', class:"form-control" %>
     </div>
 
-    <div class="input-group">
+    <div class="input-group form-group">
         <%= form.text_field :email, placeholder: 'Email' , class:"form-control"%>
     </div>
 
-    <div class="input-group">
+    <div class="input-group form-group">
         <%= form.text_field :phone, placeholder: 'Phone' , class:"form-control"%>
     </div>
 
-    <div class="input-group">
+    <div class="input-group form-group">
         <%= form.text_field :address, placeholder: 'Address' , class:"form-control"%>
     </div>
 
 
-    <div class="input-group">
+    <div class="input-group form-group">
         <% states = [] %>
         <% CS.states(:my).each do |x, y| states << y.to_s %><% end %>
-        <%= form.select :state, options_for_select(states, "Perak") , class:"form-control"%>
+        <%= form.select :state, options_for_select(states, "Johor") , class:"form-control"%>
     </div>
 
-    <div class="input-group">
+    <div class="input-group form-group">
 
         <%= form.text_field :city, placeholder: 'City' , class:"form-control"%>
     </div>
 
-    <div class="input-group">
+    <div class="input-group form-group">
         <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-eye-close"></span></span>
         <%= form.password_field :password ,placeholder: 'Password' , class:"form-control"%>
     </div>
