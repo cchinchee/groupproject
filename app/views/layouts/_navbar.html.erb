@@ -1,0 +1,66 @@
+
+<nav class="navbar">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Logo</a></li>
+        <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="">Apply</a></li>
+        <li><a href="">Guide</a></li>
+
+        <% if signed_in? %>
+        <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+        <% else %>
+        <li><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#logInModal">Log In</a></li>
+        <% end %>
+        <!-- Modal -->
+        <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Log In</h4>
+              </div>
+              <div class="modal-body">
+                <%= render partial: '/sessions/form' %>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <%= render partial: '/users/new' %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+          
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

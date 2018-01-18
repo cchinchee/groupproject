@@ -1,0 +1,61 @@
+<%= form_for User.new, url: users_path do |form| %>
+      
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-font"></span></span>
+        <%= form.text_field :first_name, placeholder: 'First Name', class:"form-control"%>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-font"></span></span>
+        <%= form.text_field :last_name, placeholder: 'Last Name', class:"form-control" %>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+        <%= form.text_field :email, placeholder: 'Email' , class:"form-control"%>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+        <%= form.text_field :phone, placeholder: 'Phone' , class:"form-control"%>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+        <%= form.text_field :address, placeholder: 'Address' , class:"form-control"%>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+        <%= form.text_field :city, placeholder: 'City' , class:"form-control"%>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+        <%= form.text_field :state, placeholder: 'State' , class:"form-control"%>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-eye-close"></span></span>
+        <%= form.password_field :password ,placeholder: 'Password' , class:"form-control"%>
+    </div>
+    
+    </br>
+
+    <button type="button" onclick="window.location.href='/auth/facebook'" class="btn btn-primary form-control"><i class="fa fa-facebook"></i> &nbsp; Continue with Facebook</button>
+
+    <div class="modal-footer">
+      </br>
+
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= form.submit "Confirm", class: "btn btn-primary" %>
+    </div>
+    
+<% end %>
+
+
+
+   
+
+
+   
