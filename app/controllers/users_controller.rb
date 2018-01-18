@@ -11,6 +11,15 @@ class UsersController < ApplicationController
 		redirect_to "/"
 	end
 
+	def check
+		selected_state = CS.get(:my).find do |key, value| value == params[:chosenState] end
+		selected_state = selected_state[0]
+
+		allCities = CS.get(:my, selected_state)
+
+		render json: {available_cities: allCities}.to_json
+	end
+
 	private
 
 	def find_user
