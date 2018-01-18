@@ -1,0 +1,29 @@
+#carousel-example-generic img{
+	width: auto;
+	height: 445px;
+}
+
+.carousel-inner{
+	position: relative;
+}
+
+#guide_container{
+	padding-top: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
+	height:400px;
+	background-color: #009D3B;
+	color: white;
+	text-align: center;
+}
+
+#guide_container h1{
+	margin: 0 auto;
+}
+
+.button{
+	color: black;
+	margin-top: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}

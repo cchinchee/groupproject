@@ -1,1 +1,58 @@
 <%= render partial: "/layouts/navbar" %>
+
+<style type="text/css">
+	.carousel-inner img {
+  margin: auto;
+}
+</style>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag ("picture1.jpg") %>
+      <div class="carousel-caption">
+      	<h1>JOB. SECURITY</h1>
+      	<h3>Partner with us to increasing your security </h3>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag ("picture2.jpg") %>
+      <div class="carousel-caption">
+      	<h1>FUTURE. TRAINING</h1>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag ("picture3.jpg") %>
+      <div class="carousel-caption">
+      	<h1>CONTRIBUTE TO SOCIETY</h1>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+<div id="guide_container">
+	<div>
+		<h1>What you should know before your first ****</h1>
+	</div>
+	<div>
+		<%= button_to "Click For More", "/", class: "button" %>
+	</div>
+</div>
+
+<%= render partial: "/layouts/footer" %>
+
