@@ -27,9 +27,9 @@
         <%= form.select :state, options_for_select(states, "Perak") , class:"form-control"%>
     </div>
 
-    <div class="input-group">
-
-        <%= form.text_field :city, placeholder: 'City' , class:"form-control"%>
+    <div class="input-group", id="show-city", style="display: none">
+        <% city = [] %>
+        <%= form.select :city, options_for_select(city) , class:"form-control"%>
     </div>
 
     <div class="input-group">
