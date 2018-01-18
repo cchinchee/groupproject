@@ -26,6 +26,8 @@ gem 'city-state'
 gem 'figaro'
 # Facebook Login
 gem 'omniauth-facebook'
+# Google Login
+gem 'omniauth-google-oauth2'
 # Use clearance GEM
 gem 'clearance'
 # Use jquery as the JavaScript library
