@@ -1,0 +1,121 @@
+/*.modal-dialog {
+
+  top: 70px;
+}*/
+
+a.btn-signup {
+  border: 2.5px solid transparent;
+  border-color: #484848;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  font-size: 19px;
+  line-height: 22px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 700;
+  padding-top:12px;
+  padding-bottom: 12px;
+  display: inline;
+  color:#484848;
+}
+
+a.btn {
+	border-radius: 4px;
+	padding: 12px 24px;
+	
+}
+
+#facebook-text{
+  color: #4568b2;
+  border-color: #4568b2;
+}
+
+#google-text{
+  border-top-color: #ea4335;
+  border-right-color: #4285f4;
+  border-bottom-color: #34a853;
+  border-left-color:#fbbc05; 
+
+}
+
+.modal-container {
+  box-sizing: border-box;
+  
+  margin-bottom: 10px;
+
+  a.modal-btn {
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif ;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    
+    &:hover {
+      color:#484848;
+    }
+  }
+}
+
+.modal-body {
+	padding: 40px;
+}
+
+.modal-close {
+	padding-bottom: 15px;
+	margin-bottom: 20px; 
+}
+
+.footer-hr {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: .5;
+  border-top: 1px solid #818078;
+}
+
+.modal-footer-content {
+	margin-top: 0px;
+}
+
+a.login-text {
+  text-decoration: none;
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: .5;
+  &:before {
+    content: '';
+    // use the linear-gradient for the fading effect
+    // use a solid background color for a solid bar
+    background: #818078;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 .5em;
+    line-height: 1.5em;
+    // this is really the only tricky part, you need to specify the background color of the container element...
+    color: #818078;
+    background-color: #fcfcfa;
+  }
+}
