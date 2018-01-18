@@ -21,8 +21,11 @@ ActiveRecord::Schema.define(version: 20180117141331) do
     t.string "first_name"
     t.string "last_name"
     t.string "email", null: false
-    t.integer "phone"
-    t.string "area"
+    t.string "phone"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "postcode"
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
