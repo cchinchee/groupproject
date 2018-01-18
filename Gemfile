@@ -20,6 +20,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use city-state for list of country and state
+gem 'city-state'
+
 # Use clearance GEM
 gem 'clearance'
 # Use jquery as the JavaScript library
