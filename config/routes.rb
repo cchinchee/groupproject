@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 
   root 'users#index'
   
+  post '/states/check' => 'users#check'
 end
