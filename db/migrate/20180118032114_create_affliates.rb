@@ -11,7 +11,7 @@ class CreateAffliates < ActiveRecord::Migration[5.1]
       t.string :state
       t.boolean :verification_status, default: false
       t.json :verification_documents
-      t.boolean :role, default: false
+      t.integer :role, default: 0
 
       t.timestamps
     end
