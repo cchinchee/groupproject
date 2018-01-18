@@ -1,9 +1,23 @@
-/*.modal-dialog {
-
-  top: 70px;
+/*.modal-dialog-signup {
+  
+  overflow-y: initial;
+  
 }*/
 
-a.btn-signup {
+.navbar-right-item{
+  height: auto;
+  vertical-align: middle;
+  display:inline;
+}
+
+a.navbar-right-1{
+  padding-top:15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+a.btn-signup, .btn-submit {
   border: 2.5px solid transparent;
   border-color: #484848;
   border-radius: 4px;
@@ -23,7 +37,12 @@ a.btn-signup {
 a.btn {
 	border-radius: 4px;
 	padding: 12px 24px;
-	
+}
+
+.btn-submit {
+  padding-top:3px;
+  
+
 }
 
 #facebook-text{
@@ -57,7 +76,7 @@ a.btn {
 }
 
 .modal-body {
-	padding: 40px;
+	padding: 20px 40px;
 }
 
 .modal-close {
@@ -84,6 +103,22 @@ a.btn {
 
 a.login-text {
   text-decoration: none;
+}
+
+
+.col-md-6 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.form-control {
+  height: 35px;
+  font-size: 15px;
+}
+
+#user_state, #user_city {
+  font-size: 15px;
+  height: 35px;
 }
 
 .hr-text {
