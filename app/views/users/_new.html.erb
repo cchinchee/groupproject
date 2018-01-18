@@ -1,51 +1,49 @@
 <%= form_for User.new, url: users_path do |form| %>
-      
-    <div class="input-group form-group">
+    <div class="text-field form-group col-md-6">
         <%= form.text_field :first_name, placeholder: 'First Name', class:"form-control"%>
     </div>
 
-    <div class="input-group form-group">
+    <div class="text-field form-group col-md-6">
         <%= form.text_field :last_name, placeholder: 'Last Name', class:"form-control" %>
     </div>
 
-    <div class="input-group form-group">
+    <div class="text-field form-group col-md-6">
         <%= form.text_field :email, placeholder: 'Email' , class:"form-control"%>
     </div>
 
-    <div class="input-group form-group">
+    <div class="text-field form-group col-md-6">
         <%= form.text_field :phone, placeholder: 'Phone' , class:"form-control"%>
     </div>
 
-    <div class="input-group form-group">
+    <div class="text-field form-group">
         <%= form.text_field :address, placeholder: 'Address' , class:"form-control"%>
     </div>
 
+    <div class="text-field form-group">
+        <%= form.text_field :postcode, placeholder: 'Postcode', class:"form-control"%>
+    </div>  
 
-    <div class="input-group form-group">
+    <div class="text-field form-group">
         <% states = [] %>
         <% CS.states(:my).each do |x, y| states << y.to_s %><% end %>
         <%= form.select :state, options_for_select(states, "Johor") , class:"form-control"%>
     </div>
 
-    <div class="input-group", id="show-city", style="display: none">
+    <div class="text-field form-group", id="show-city", style="display: none">
         <% city = [] %>
         <%= form.select :city, options_for_select(city) , class:"form-control"%>
 
     </div>
 
-    <div class="input-group form-group">
+    <div class="text-field form-group">
         <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-eye-close"></span></span>
         <%= form.password_field :password ,placeholder: 'Password' , class:"form-control"%>
     </div>
     
     </br>
 
-    <button type="button" onclick="window.location.href='/auth/facebook'" class="btn btn-primary form-control"><i class="fa fa-facebook"></i> &nbsp; Continue with Facebook</button>
-
     <div class="modal-footer">
       </br>
-
-      
       <%= form.submit "Confirm", class: "btn btn-primary" %>
     </div>
     

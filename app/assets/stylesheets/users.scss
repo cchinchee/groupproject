@@ -1,7 +1,21 @@
-/*.modal-dialog {
-
-  top: 70px;
+/*.modal-dialog-signup {
+  
+  overflow-y: initial;
+  
 }*/
+
+.navbar-right-item{
+  height: auto;
+  vertical-align: middle;
+  display:inline;
+}
+
+a.navbar-right-1{
+  padding-top:15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 a.btn-signup {
   border: 2.5px solid transparent;
@@ -57,7 +71,7 @@ a.btn {
 }
 
 .modal-body {
-	padding: 40px;
+	padding: 20px 40px;
 }
 
 .modal-close {
@@ -84,6 +98,12 @@ a.btn {
 
 a.login-text {
   text-decoration: none;
+}
+
+
+.col-md-6 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .hr-text {

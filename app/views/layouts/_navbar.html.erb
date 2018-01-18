@@ -18,17 +18,17 @@
         </li> -->
       </ul>
 
-      <div class="nav navbar-nav navbar-right">
-        <div><a href="#">Apply</a></div>
-        <div><a href="#">Guide</a></div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1">Apply</a></li>
+        <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1">Guide</a></li>
 
         <% if signed_in? %>
-        <div><%= link_to 'Sign out', sign_out_path, method: :delete %></div>
+        <li class="nav navbar-nav navbar-right-item"><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
         <% else %>
-        <div><a class="modal-btn" data-toggle="modal" data-target="#signUpModalMain">Sign Up</a></div>
-        <div><a class="modal-btn" data-toggle="modal" data-target="#logInModal">Log In</a></div>
+        <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#signUpModalMain">Sign Up</a></li>
+        <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#logInModal">Log In</a></li>
         <% end %>
-
+      </ul>
         <!-- Modal sign up main-->
         <div class="modal fade" id="signUpModalMain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
@@ -91,12 +91,21 @@
         <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <div class="modal-body">
+                <div class="modal-close" id="modal-header-social">
+                  
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                  <p>Sign up with <%= link_to "Facebook", "/auth/facebook" %> or <%= link_to "Google", "/auth/google_oauth2" %></p>
+                    <hr class="hr-text" data-content="or">                
+                  
+                <div class="modal-form">
                 <%= render partial: '/users/new' %>
-              </div>
 
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -111,6 +120,7 @@
               </div>
               <div class="modal-body">
                 <%= render partial: '/sessions/form' %>
+
               </div>
               
             </div>
@@ -119,7 +129,7 @@
 
 
           
-      </div>
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
