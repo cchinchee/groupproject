@@ -22,7 +22,10 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use city-state for list of country and state
 gem 'city-state'
-
+# Use figaro gem for privacy
+gem 'figaro'
+# Facebook Login
+gem 'omniauth-facebook'
 # Use clearance GEM
 gem 'clearance'
 # Use jquery as the JavaScript library
