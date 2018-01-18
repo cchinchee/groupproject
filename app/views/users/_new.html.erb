@@ -23,28 +23,25 @@
         <%= form.text_field :postcode, placeholder: 'Postcode', class:"form-control"%>
     </div>  
 
-    <div class="text-field form-group">
+    <div class="select-field form-group col-md-6">
         <% states = [] %>
         <% CS.states(:my).each do |x, y| states << y.to_s %><% end %>
         <%= form.select :state, options_for_select(states, "Johor") , class:"form-control"%>
     </div>
 
-    <div class="text-field form-group", id="show-city", style="display: none">
+    <div class="select-field form-group col-md-5", id="show-city", style="display: none">
         <% city = [] %>
         <%= form.select :city, options_for_select(city) , class:"form-control"%>
 
     </div>
 
     <div class="text-field form-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-eye-close"></span></span>
+        
         <%= form.password_field :password ,placeholder: 'Password' , class:"form-control"%>
     </div>
-    
-    </br>
 
-    <div class="modal-footer">
-      </br>
-      <%= form.submit "Confirm", class: "btn btn-primary" %>
+    <div class="form-group">
+      <%= form.submit "Create an account", class: "text-field btn-submit form-control" %>
     </div>
     
 <% end %>

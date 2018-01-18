@@ -17,7 +17,7 @@ a.navbar-right-1{
   padding-right: 15px;
 }
 
-a.btn-signup {
+a.btn-signup, .btn-submit {
   border: 2.5px solid transparent;
   border-color: #484848;
   border-radius: 4px;
@@ -37,7 +37,12 @@ a.btn-signup {
 a.btn {
 	border-radius: 4px;
 	padding: 12px 24px;
-	
+}
+
+.btn-submit {
+  padding-top:3px;
+  
+
 }
 
 #facebook-text{
@@ -104,6 +109,16 @@ a.login-text {
 .col-md-6 {
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.form-control {
+  height: 35px;
+  font-size: 15px;
+}
+
+#user_state, #user_city {
+  font-size: 15px;
+  height: 35px;
 }
 
 .hr-text {
