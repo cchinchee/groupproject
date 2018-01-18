@@ -1,38 +1,35 @@
 <%= form_for User.new, url: users_path do |form| %>
       
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-font"></span></span>
         <%= form.text_field :first_name, placeholder: 'First Name', class:"form-control"%>
     </div>
 
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-font"></span></span>
         <%= form.text_field :last_name, placeholder: 'Last Name', class:"form-control" %>
     </div>
 
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
         <%= form.text_field :email, placeholder: 'Email' , class:"form-control"%>
     </div>
 
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
         <%= form.text_field :phone, placeholder: 'Phone' , class:"form-control"%>
     </div>
 
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
         <%= form.text_field :address, placeholder: 'Address' , class:"form-control"%>
     </div>
 
+
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
-        <%= form.text_field :city, placeholder: 'City' , class:"form-control"%>
+        <% states = [] %>
+        <% CS.states(:my).each do |x, y| states << y.to_s %><% end %>
+        <%= form.select :state, options_for_select(states, "Perak") , class:"form-control"%>
     </div>
 
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
-        <%= form.text_field :state, placeholder: 'State' , class:"form-control"%>
+
+        <%= form.text_field :city, placeholder: 'City' , class:"form-control"%>
     </div>
 
     <div class="input-group">
@@ -47,7 +44,7 @@
     <div class="modal-footer">
       </br>
 
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      
       <%= form.submit "Confirm", class: "btn btn-primary" %>
     </div>
     
