@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   post '/states/check' => 'users#check'
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+  resources :affliates, only: :create
 end
