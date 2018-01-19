@@ -48,8 +48,8 @@ end
 
 job = {}
 uids = []
-User.all.each { |u| uids << u.id }
 aids = []
+User.all.each { |u| uids << u.id }
 Affiliate.all.each { |u| aids << u.id }
 
 ActiveRecord::Base.transaction do
@@ -68,8 +68,7 @@ ActiveRecord::Base.transaction do
 
     job['user_id'] = uids.sample
     job['affiliate_id'] = aids.sample
-
-
+    
     Job.create(job)
   end
 end
