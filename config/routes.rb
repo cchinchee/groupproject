@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   patch "/users/:id/update" => "users#update", as: "user_update"
   
   post "/jobs/new/" => 'users#index'
-
+  post "/jobs/check" => "jobs#check"
 
   get "/companies" => 'companies#show'
 
