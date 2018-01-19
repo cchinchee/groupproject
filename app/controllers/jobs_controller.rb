@@ -39,7 +39,7 @@ class JobsController < ApplicationController
     
 private
     def job_params
-        params.require(:job).permit(:name, :category, :start_date, :end_date, :description, :price, :review, :address, :state, :city, :postcodes)
+        params.require(:job).permit(:name, :category, :start_date, :start_time, :description, :price, :address, :state, :city, :postcode, :user_id, :affiliate_id)
     end
 
     def show_job_params
