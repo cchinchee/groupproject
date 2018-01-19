@@ -1,5 +1,27 @@
 <%= render partial: "/layouts/navbar" %>
 
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div><%= image_tag("userprofile.jpg",class:"thumbnail")%></div>
+			<div class="thumnail">
+				<h1>About Me!</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+			</div>	
+		</div>
+		<div class="col-md-8">
+			<div>
+				<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+			</div>
+			<div>
+				<h1>Job Posted Previously</h1>
+			</div>
+			<div>
+				<h1>Completed Job by </h1>
+			</div>
+		</div>
+	</div>
+</div>
 
 

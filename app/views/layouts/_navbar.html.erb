@@ -24,6 +24,7 @@
 
         <% if signed_in? %>
         <li class="nav navbar-nav navbar-right-item"><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+        <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" href="/users/<%= current_user.id %>/show"><%= image_tag("userprofile.jpg",class:"userlogo")%></a></li>
         <% else %>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#signUpModalMain">Sign Up</a></li>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#logInModal">Log In</a></li>
