@@ -1,4 +1,6 @@
-<div class="text-field form-group col-md-6">
+<%= form_for Job.new, url: jobs_path, method: :POST do |form| %>
+
+    <div class="text-field form-group col-md-6">
         <%= form.text_field :name, placeholder: 'Name', class:"form-control"%>
     </div>
     
@@ -7,7 +9,11 @@
     </div>
     
     <div class="text-field form-group col-md-6">
-        <%= form.text_field :start_date, placeholder: 'Start Date', class:"form-control"%>
+        <%= form.date_field :start_date, placeholder: 'Start Date', class:"form-control"%>
+    </div>
+    
+    <div class="text-field form-group col-md-6">
+        <%= form.date_field :end_date, placeholder: 'End Date', class:"form-control"%>
     </div>
     
     <div class="text-field form-group col-md-6">
@@ -15,11 +21,7 @@
     </div>
     
     <div class="text-field form-group col-md-6">
-        <%= form.text_field :price, placeholder: 'Price', class:"form-control"%>
-    </div>
-    
-    <div class="text-field form-group col-md-6">
-        <%= form.text_field :reviews, placeholder: 'Reviews', class:"form-control"%>
+        <%= form.number_field :price, placeholder: 'Price', class:"form-control"%>
     </div>
     
     <div class="text-field form-group col-md-6">
@@ -31,9 +33,15 @@
     </div>
     
     <div class="text-field form-group col-md-6">
-        <%= form.text_field :cite, placeholder: 'City', class:"form-control"%>
+        <%= form.text_field :city, placeholder: 'City', class:"form-control"%>
     </div>
     
     <div class="text-field form-group col-md-6">
         <%= form.text_field :postcode, placeholder: 'Postcode', class:"form-control"%>
     </div>
+    
+    <div class="form-group">
+      <%= form.submit "Post a job", class: "text-field btn-submit form-control" %>
+    </div>
+    
+   <% end %>
