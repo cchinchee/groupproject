@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
 // Place all the behaviors and hooks related to the matching controller here.
