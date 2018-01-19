@@ -1,0 +1,22 @@
+<%= render partial: "/layouts/navbar" %>
+
+<div class="container">
+	<div class="col-md-7 sectionstyle leftsectionstyle leftsection">
+		<h1 id="jobName"><%= @job.name %></h1>
+		<h2>Category</h2>
+		<h4>· <%= @job.category %></h4>
+		<h2>Start Date</h2>
+		<h4>· <%= @job.start_date %></h4>
+		<h2>Price</h2>
+		<h4>· <%= @job.price %></h4>
+		<h2>Address</h2>
+		<h4>· <%= @job.address %>,<%= @job.city %>,<%= @job.state %></h4>
+		<h2>Postcode</h2>
+		<h4>· <%= @job.postcode %></h4>
+	</div>
+	<div class="col-md-1"></div>
+	<div class="col-md-4 sectionstyle rightsectionstyle">
+		<h2>Accept the job now </h2>
+		<%= button_to "Reserve", "/" %>
+	</div>
+</div>
