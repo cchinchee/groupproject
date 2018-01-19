@@ -55,10 +55,9 @@ ActiveRecord::Schema.define(version: 20180119082952) do
     t.string "name"
     t.string "category"
     t.date "start_date"
-    t.date "end_date"
+    t.time "start_time"
     t.string "description"
     t.integer "price"
-    t.string "review"
     t.string "address"
     t.string "state"
     t.string "city"
@@ -102,4 +101,5 @@ ActiveRecord::Schema.define(version: 20180119082952) do
   add_foreign_key "jobs", "affiliates"
   add_foreign_key "jobs", "users"
   add_foreign_key "training_courses", "affiliates"
+
 end
