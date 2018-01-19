@@ -26,6 +26,8 @@ gem 'city-state'
 gem 'figaro'
 # Facebook Login
 gem 'omniauth-facebook'
+# Use faker gem for seeding
+gem "faker"
 # Use clearance GEM
 gem 'clearance'
 # Use jquery as the JavaScript library
