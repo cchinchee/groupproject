@@ -1,0 +1,33 @@
+<%= form_tag "/affiliates_signin" do %>
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+    <%= text_field_tag "affiliates[email]", nil, placeholder: 'Email', class:"form-control"%>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-eye-close"></span></span>
+    <%= password_field_tag "affiliates[password]",nil, placeholder: 'Password', class:"form-control" %>
+  </div>
+  </br>
+
+  <div class="other-links">
+    <div>
+      <%= link_to t(".forgot_password"), new_password_path %>
+    </div>
+  </div>
+
+  <button type="button" onclick="window.location.href='/auth/facebook'" class="btn btn-primary form-control"><i class="fa fa-facebook"></i> &nbsp; Continue with Facebook</button>
+
+  <div class="modal-footer">
+    <div>
+      <% if Clearance.configuration.allow_sign_up? %>
+        <span class="text-center">Don't have an account? </span><a href="#" data-toggle="modal" data-target="#signUpModal" data-dismiss="modal">Sign Up</a>
+      <% end %>
+    </div>
+    </br>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= submit_tag "Sign In", class:"btn btn-primary" %>
+  </div>
+
+<% end %>

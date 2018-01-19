@@ -1,8 +1,7 @@
 class AffiliatesController < ApplicationController
-	has_secure_password
 
 	def sign_in
-
+		render "/affiliates/signin"
 	end
 
 	def sign_up
