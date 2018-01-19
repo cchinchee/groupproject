@@ -18,20 +18,20 @@
     <div class="item active">
       <%= image_tag ("picture1.jpg") %>
       <div class="carousel-caption">
-      	<h1>JOB. SECURITY</h1>
-      	<h3>Partner with us to increasing your security </h3>
+      	<h1 class="sectionheader">JOB. SECURITY</h1>
+      	<h3 class="sectionword">Partner with us to increasing your security </h3>
       </div>
     </div>
     <div class="item">
       <%= image_tag ("picture2.jpg") %>
       <div class="carousel-caption">
-      	<h1>FUTURE. TRAINING</h1>
+      	<h1 class="sectionheader">FUTURE. TRAINING</h1>
       </div>
     </div>
     <div class="item">
       <%= image_tag ("picture3.jpg") %>
       <div class="carousel-caption">
-      	<h1>CONTRIBUTE TO SOCIETY</h1>
+      	<h1 class="sectionheader">CONTRIBUTE TO SOCIETY</h1>
       </div>
     </div>
   </div>
@@ -47,17 +47,31 @@
 
 <div id="guide_container">
 	<div>
-		<h1>What you should know before your first ****</h1>
+		<h1 class="sectionheader">What you should know before your first ****</h1>
 	</div>
 	<div>
 		<%= button_to "Click For More", "/", class: "button" %>
 	</div>
 </div>
 
-<div>
-	<div>
-		<h2>Latest Job</h2>
-	</div>
+<div class='container'>
+  <h1 id="latestjobheader">Latest Job</h1>
+  </br>
+  <% @job.each do |t| %>
+  <a href="" target="blank">
+    <div class="thumbnail jobstyle">
+      <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+      <div class="caption">
+        <h3><%= t.name %></h3>
+        <h5><%= t.category %></h5>
+        <h5>RM <%= t.price %></h5>
+      </div>
+    </div>
+  </a>
+  <% end %>
+  <div id='paginate'>
+    <div class='container'><%= paginate @job ,window: 2%></div>
+  </div>
 </div>
 
 <%= render partial: "/layouts/footer" %>

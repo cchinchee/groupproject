@@ -26,8 +26,12 @@ gem 'city-state'
 gem 'figaro'
 # Facebook Login
 gem 'omniauth-facebook'
+# Use faker gem for seeding
+gem "faker"
 # Use clearance GEM
 gem 'clearance'
+# Use for paging
+gem 'kaminari'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
