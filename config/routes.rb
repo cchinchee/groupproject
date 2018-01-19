@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
   end
-
+    
+    resources :jobs, except: :index
+    
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
@@ -22,4 +24,14 @@ Rails.application.routes.draw do
   get "/users/:id/show" => "users#show", as: "user_show"
   get "/users/:id/edit" => "users#edit", as: "user_edit"
   patch "/users/:id/update" => "users#update", as: "user_update"
+  
+  post "/jobs/new/" => 'users#index'
+
+  post "/affiliates/sign_in" => "affiliates#sign_in", as: "affiliate_sign_in"
+  get "/affiliates/sign_in" => "affiliates#signin" 
+  get "/affiliates/sign_out" => "affiliates#sign_out", as: "affiliate_sign_out"
+  get "/affiliates/sign_up" => "affiliates#sign_up", as: "affiliate_sign_up"
+  resources :affiliates, only: :create
+
+
 end

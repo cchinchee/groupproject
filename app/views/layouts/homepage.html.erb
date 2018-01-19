@@ -47,7 +47,7 @@
 
 <div id="guide_container">
 	<div>
-		<h1 class="sectionheader">What you should know before your first ****</h1>
+		<h1 class="sectionheader">What you should know </h1>
 	</div>
 	<div>
 		<%= button_to "Click For More", "/", class: "button" %>
@@ -56,9 +56,12 @@
 
 <div class='container'>
   <h1 id="latestjobheader">Latest Job</h1>
-  </br>
+  <br>
+  <% if signed_in? %>
+  <h2><%= link_to 'Post a job', new_job_path %></h2>
+  <% end %>
   <% @job.each do |t| %>
-  <a href="" target="blank">
+    <%= link_to job_path(t.id) do %>
     <div class="thumbnail jobstyle">
       <%= image_tag("cooking.jpg", class:"thumnail-image")%>
       <div class="caption">
@@ -67,7 +70,7 @@
         <h5>RM <%= t.price %></h5>
       </div>
     </div>
-  </a>
+    <% end %>
   <% end %>
   <div id='paginate'>
     <div class='container'><%= paginate @job ,window: 2%></div>

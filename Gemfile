@@ -26,6 +26,8 @@ gem 'city-state'
 gem 'figaro'
 # Facebook Login
 gem 'omniauth-facebook'
+# Google Login
+gem 'omniauth-google-oauth2'
 # Use faker gem for seeding
 gem "faker"
 # Use clearance GEM
@@ -41,7 +43,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
