@@ -13,7 +13,7 @@ class CreateJobs < ActiveRecord::Migration[5.1]
     	t.string :city
     	t.string :postcode
     	t.integer :user_id
-    	t.integer :affliates_id
+    	t.integer :affiliates_id
 
       	t.timestamps
     end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AffliatesControllerTest < ActionDispatch::IntegrationTest
+class AffiliatesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

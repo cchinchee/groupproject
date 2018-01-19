@@ -20,11 +20,12 @@
 // All this logaic will automatically be available in application.js.
 document.addEventListener("turbolinks:load", function(){
 
-	if (document.querySelector("#user_state")){
+	if (document.querySelector("#user_state") || document.querySelector("#affiliate_state")){
 
-		const selectedState = document.querySelector("#user_state")
-		const displayCities = document.querySelector("#user_city")
+		const selectedState = document.querySelector("#user_state") || document.querySelector("#affiliate_state")
+		const displayCities = document.querySelector("#user_city") || document.querySelector("#affiliate_city")
 		const showCities = document.querySelector("#show-city")
+
 		const token = document.getElementsByName("csrf-token")[0].content
 		
 		selectedState.addEventListener("change", function(){

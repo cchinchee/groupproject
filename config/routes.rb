@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   post '/states/check' => 'users#check'
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+  post "/affiliates/sign_in" => "affiliates#sign_in", as: "affiliate_sign_in"
+  get "/affiliates/sign_in" => "affiliates#signin" 
+  get "/affiliates/sign_out" => "affiliates#sign_out", as: "affiliate_sign_out"
+  get "/affiliates/sign_up" => "affiliates#sign_up", as: "affiliate_sign_up"
+  resources :affiliates, only: :create
 end
