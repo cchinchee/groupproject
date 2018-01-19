@@ -12,10 +12,8 @@ class CreateJobs < ActiveRecord::Migration[5.1]
     	t.string :state
     	t.string :city
     	t.string :postcode
-      t.references :user, foreign_key: true
-    	t.references :affiliates, foreign_key: true
-    	t.integer :user_id
-    	t.integer :affiliates_id
+        t.references :user, foreign_key: true
+    	t.references :affiliate, foreign_key: true
       
       t.timestamps
     end
