@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   post '/states/check' => 'users#check'
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+  get "/users/:id/show" => "users#show", as: "user_show"
+  get "/users/:id/edit" => "users#edit", as: "user_edit"
+  patch "/users/:id/update" => "users#update", as: "user_update"
 end

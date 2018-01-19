@@ -12,6 +12,11 @@ class UsersController < ApplicationController
 		redirect_to "/"
 	end
 
+	def show
+		@job = Job.where(user_id: params[:id])
+		render 'users/show'
+	end
+
 	def check
 		selected_state = CS.get(:my).find do |key, value| value == params[:chosenState] end
 		selected_state = selected_state[0]
