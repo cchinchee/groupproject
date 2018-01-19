@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118095456) do
+ActiveRecord::Schema.define(version: 20180118150514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180118095456) do
     t.boolean "verification_status", default: false
     t.json "verification_documents"
     t.integer "role", default: 0
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +40,24 @@ ActiveRecord::Schema.define(version: 20180118095456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_authentications_on_user_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "description"
+    t.integer "price"
+    t.string "review"
+    t.string "address"
+    t.string "state"
+    t.string "city"
+    t.string "postcode"
+    t.integer "user_id"
+    t.integer "affliates_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
