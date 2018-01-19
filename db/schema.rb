@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20180119041023) do
     t.integer "role", default: 0
 
     t.string "password_digest"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,14 +64,10 @@ ActiveRecord::Schema.define(version: 20180119041023) do
     t.string "state"
     t.string "city"
     t.string "postcode"
-
-
     t.references :user, foreign_key: true "user_id"
     t.references :affiliates, foreign_key: true "affiliates_id"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,5 +89,4 @@ ActiveRecord::Schema.define(version: 20180119041023) do
   end
 
   add_foreign_key "authentications", "users"
-  add_foreign_key "jobs", "users"
 end
