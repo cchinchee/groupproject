@@ -17,6 +17,25 @@ class JobsController < ApplicationController
 		@new_job.save
 		redirect_to "/"
     end
+
+    def check
+        case params[:chosenCategory]
+        when "Cleaning Service"
+            price = "RM 80"
+        when "Catering Service"
+            price = "RM 100"
+        when "Mobile and Laptop Repair"
+            price = "RM 150"
+        when "Home Maintenance"
+            price = "RM 60"
+        when "Movers"
+            price = "RM 70"
+        when "Plumbing Service"
+            price = "RM 60"
+        end
+
+        render json: {chosenPrice: price}.to_json
+    end
     
 private
     def job_params
