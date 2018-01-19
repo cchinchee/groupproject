@@ -1,0 +1,36 @@
+<%= render partial: "/layouts/navbar" %>
+
+
+
+<div class="container">
+  <h2>Training Course List</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Training Course</th>
+        <th>Company</th>
+        <th>xxxxx</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Professional Cleaning Services</td>
+        <td>Cleaning Services Sdn Bdh</td>
+        <td><%= button_to "Apply", "#" %></td>
+      </tr>
+      <tr>
+        <td>Website basic front end coding</td>
+        <td>Next Academy</td>
+        <td><%= button_to "Apply", "#" %></td>
+      </tr>
+      <tr>
+        <td>Cooking Class - Western food</td>
+        <td>The Cooking Shop</td>
+        <td><%= button_to "Apply", "#" %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<%= render partial: "/layouts/footer" %>
