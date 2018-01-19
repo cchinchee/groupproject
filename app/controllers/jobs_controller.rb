@@ -1,13 +1,20 @@
 class JobsController < ApplicationController
 	
+    def index
+    end
+    
+    def new
+        @job = Job.all
+    end
+    
 	def create
-		@job = Job.new(job_params)
-		@job.save
+		@new_job = current_user.jobs.new(job_params)
+		@new_job.save
 		redirect_to "/"
-	end
+    end
     
 private
     def job_params
-        params.require(:job).permit(:name, :category, :start_date, :end_date, :description, :price, :review, :address, :states, :city, :postcode)
+        params.require(:job).permit(:name, :category, :start_date, :end_date, :description, :price, :review, :address, :state, :city, :postcodes)
     end
 end

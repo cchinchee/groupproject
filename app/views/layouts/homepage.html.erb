@@ -47,7 +47,7 @@
 
 <div id="guide_container">
 	<div>
-		<h1 class="sectionheader">What you should know before your first ****</h1>
+		<h1 class="sectionheader">What you should know </h1>
 	</div>
 	<div>
 		<%= button_to "Click For More", "/", class: "button" %>
@@ -55,7 +55,7 @@
 </div>
 
 <div class='container'>
-  <h1 id="latestjobheader">Latest Job</h1> <br> <h2><%= link_to 'Post a job' %></h2>
+  <h1 id="latestjobheader">Latest Job</h1> <br> <h2><%= link_to 'Post a job', new_jobs_path %></h2>
   </br>
   <% @job.each do |t| %>
   <a href="" target="blank">
