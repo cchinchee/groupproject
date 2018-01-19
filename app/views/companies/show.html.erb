@@ -1,0 +1,10 @@
+<h3>Company Profile</h3>
+
+<% Company.all.each do  |c|  %>
+
+<p>Company Name: <%= c.name %></p>
+<p>Company Email: <%= c.email %></p>
+<p>Company address: <%= c.address %></p>
+<p>Company contact number: <%= c.phone %></p>
+
+<% end %>
