@@ -1,3 +1,25 @@
-// Place all the styles related to the jobs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.sectionstyle{
+	text-align: center;
+	background-color: #1E1E1E;
+}
+
+.leftsectionstyle h1,h2{
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.sectionstyle h4{
+	font-family: 'Open Sans', sans-serif;
+	color: #FFFFFF;
+}	
+
+#jobName{
+	font-size: 6em;
+}
+
+.rightsectionstyle h1,h2{
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #FFFFFF;
+}
+
