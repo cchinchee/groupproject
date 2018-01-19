@@ -1,10 +1,15 @@
 class JobsController < ApplicationController
-	
+    before_action :show_job_params, only: [:show]
+
     def index
     end
     
     def new
         @job = Job.all
+    end
+
+    def show
+        
     end
     
 	def create
@@ -16,5 +21,9 @@ class JobsController < ApplicationController
 private
     def job_params
         params.require(:job).permit(:name, :category, :start_date, :end_date, :description, :price, :review, :address, :state, :city, :postcodes)
+    end
+
+    def show_job_params
+        @job = Job.find(params[:id])
     end
 end
