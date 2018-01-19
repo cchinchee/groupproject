@@ -1,10 +1,18 @@
-<h3>Company Profile</h3>
+<%= render partial: "/layouts/navbar" %>
 
-<% Company.all.each do  |c|  %>
+<div id="partnership" class="partnership-photo">
+	<h3 class="text-center partnership-text">Partner with us</h3>
+	<div class="apply-button">
+		<%= button_to "Apply", "/", class: "partnership-button text-center" %>
+	</div>
+</div>
+<div class="container">
+  <h2>List of companies </h2>
+  <ul class="list-group">
+    <li class="list-group-item">Training Sdn Bhd</li>
+    <li class="list-group-item">Eboss training center</li>
+    <li class="list-group-item">Next Academy</li>
+  </ul>
+</div>
 
-<p>Company Name: <%= c.name %></p>
-<p>Company Email: <%= c.email %></p>
-<p>Company address: <%= c.address %></p>
-<p>Company contact number: <%= c.phone %></p>
-
-<% end %>
+<%= render partial: "/layouts/footer" %>

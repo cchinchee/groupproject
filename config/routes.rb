@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resource :jobs, except: :index do
     end
     
-  resources :companies
+  
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     
   post "/jobs/new/" => 'users#index'
 
+  get "/companies" => 'companies#show'
 
   post "/affiliates/sign_in" => "affiliates#sign_in", as: "affiliate_sign_in"
   get "/affiliates/sign_in" => "affiliates#signin" 
