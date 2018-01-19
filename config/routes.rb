@@ -19,5 +19,8 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  resources :affliates, only: :create
+  get "/affiliates/sign_in" => "affiliates#sign_in", as: "affiliate_sign_in"
+  get "/affiliates/sign_up" => "affiliates#sign_up", as: "affiliate_sign_up"
+  get "/affiliates/sign_out" => "affiliates#sign_out", as: "affiliate_sign_out"
+  resources :affiliates, only: :create
 end

@@ -26,8 +26,8 @@ ActiveRecord::Base.transaction do
 	end
 end
 
-affliate={}
-affliate['password'] = 'abcd'
+affiliate={}
+affiliate['password'] = 'abcd'
 
 ActiveRecord::Base.transaction do
 	20.times do
@@ -42,7 +42,7 @@ ActiveRecord::Base.transaction do
 		user['verification_status'] = false
 		user['role'] = 0
 
-		Affliate.create(affliate)
+		Affiliate.create(affiliate)
 	end
 end
 

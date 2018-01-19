@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20180118150514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "affliates", force: :cascade do |t|
+  create_table "affiliates", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20180118150514) do
     t.string "city"
     t.string "postcode"
     t.integer "user_id"
-    t.integer "affliates_id"
+    t.integer "affiliates_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

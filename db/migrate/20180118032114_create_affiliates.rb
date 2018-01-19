@@ -1,6 +1,6 @@
-class CreateAffliates < ActiveRecord::Migration[5.1]
+class CreateAffiliates < ActiveRecord::Migration[5.1]
   def change
-    create_table :affliates do |t|
+    create_table :affiliates do |t|
       t.string :first_name
       t.string :last_name
       t.string :email
