@@ -1,2 +1,0 @@
-class AffliatesController < ApplicationController
-end

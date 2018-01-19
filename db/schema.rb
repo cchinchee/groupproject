@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118150514) do
+ActiveRecord::Schema.define(version: 20180119041023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "affliates", force: :cascade do |t|
+  create_table "affiliates", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20180118150514) do
     t.boolean "verification_status", default: false
     t.json "verification_documents"
     t.integer "role", default: 0
-    t.string "password"
+    t.string "password_digest"
+    
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +43,15 @@ ActiveRecord::Schema.define(version: 20180118150514) do
     t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -54,8 +64,10 @@ ActiveRecord::Schema.define(version: 20180118150514) do
     t.string "state"
     t.string "city"
     t.string "postcode"
-    t.bigint "user_id"
-    t.integer "affliates_id"
+
+    t.references :user, foreign_key: true "user_id"
+    t.references :affiliates, foreign_key: true "affiliates_id"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
