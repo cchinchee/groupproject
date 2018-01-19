@@ -48,7 +48,9 @@ end
 
 job = {}
 uids = []
+aids = []
 User.all.each { |u| uids << u.id }
+Affiliate.all.each { |x| aids << x.id }
 
 ActiveRecord::Base.transaction do
   40.times do 
@@ -65,7 +67,7 @@ ActiveRecord::Base.transaction do
     job['postcode'] = Faker::Address.zip_code
 
     job['user_id'] = uids.sample
-
+    job['affiliate_id'] = aids.sample
 
     Job.create(job)
   end
