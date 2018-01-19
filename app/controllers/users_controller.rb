@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 	# before_action :find_user, only [:show, :edit, :update, :destroy]
 
 	def index
+		@job = Job.order(updated_at: :desc).page params[:page]
 		render 'layouts/homepage'
 	end
 
