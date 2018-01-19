@@ -5,8 +5,16 @@
 		<h1 id="jobName"><%= @job.name %></h1>
 		<h2>Category</h2>
 		<h4>· <%= @job.category %></h4>
-		<h2>Start Date</h2>
-		<h4>· <%= @job.start_date %></h4>
+		<div class="timedatesection">
+			<div>
+				<h2>Date</h2>
+				<h4>· <%= @job.start_date %></h4>
+			</div>
+			<div>
+				<h2>Time</h2>
+				<h4>· <%= @job.start_time.strftime("%H:%M") %></h4>
+			</div>
+		</div>
 		<h2>Price</h2>
 		<h4>· <%= @job.price %></h4>
 		<h2>Address</h2>

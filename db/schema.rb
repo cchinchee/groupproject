@@ -101,5 +101,4 @@ ActiveRecord::Schema.define(version: 20180119082952) do
   add_foreign_key "jobs", "affiliates"
   add_foreign_key "jobs", "users"
   add_foreign_key "training_courses", "affiliates"
-
 end
