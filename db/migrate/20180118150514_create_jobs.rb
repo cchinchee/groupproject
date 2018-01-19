@@ -4,10 +4,9 @@ class CreateJobs < ActiveRecord::Migration[5.1]
     	t.string :name
     	t.string :category
     	t.date :start_date
-    	t.date :end_date
+    	t.time :start_time
     	t.string :description
     	t.integer :price
-    	t.string :review
     	t.string :address
     	t.string :state
     	t.string :city

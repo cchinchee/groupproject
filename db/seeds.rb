@@ -49,13 +49,15 @@ end
 job = {}
 uids = []
 User.all.each { |u| uids << u.id }
+aids = []
+Affiliate.all.each { |u| aids << u.id }
 
 ActiveRecord::Base.transaction do
   40.times do 
     job['name'] = Faker::App.name
     job['category'] = ["Cooking","Tuition","Cleaning","Driving","Plumbing","Daycare"].sample
-    job['start_date'] = Faker::Date.backward(14)
-    job['end_date'] = Faker::Date.forward(14)
+    job['start_date'] = Faker::Date.forward(1)
+    job['start_time'] = Faker::Time.between(2.days.ago, Date.today, :day)
     job['description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     job['price'] = rand(100..1000)
 
@@ -65,6 +67,7 @@ ActiveRecord::Base.transaction do
     job['postcode'] = Faker::Address.zip_code
 
     job['user_id'] = uids.sample
+    job['affiliate_id'] = aids.sample
 
 
     Job.create(job)
