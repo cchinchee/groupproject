@@ -8,7 +8,6 @@ class JobsController < ApplicationController
     end
     
 	def create
-        
 		@new_job = current_user.jobs.new(job_params)
 		@new_job.save
 		redirect_to "/"
