@@ -21,14 +21,17 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-    
+  get "/users/:id/show" => "users#show", as: "user_show"
+  get "/users/:id/edit" => "users#edit", as: "user_edit"
+  patch "/users/:id/update" => "users#update", as: "user_update"
+  
   post "/jobs/new/" => 'users#index'
-
 
   post "/affiliates/sign_in" => "affiliates#sign_in", as: "affiliate_sign_in"
   get "/affiliates/sign_in" => "affiliates#signin" 
   get "/affiliates/sign_out" => "affiliates#sign_out", as: "affiliate_sign_out"
   get "/affiliates/sign_up" => "affiliates#sign_up", as: "affiliate_sign_up"
   resources :affiliates, only: :create
+
 
 end
