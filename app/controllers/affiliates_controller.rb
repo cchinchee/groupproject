@@ -5,7 +5,7 @@ class AffiliatesController < ApplicationController
 	end
 
 	def sign_up
-		render "/views/affiliates/new"
+		render "/affiliates/new"
 	end
 
 	def sign_out
