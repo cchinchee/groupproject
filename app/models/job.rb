@@ -3,7 +3,7 @@ class Job < ApplicationRecord
     belongs_to :affiliate, optional: true
 
     def full_street_address
- 		[address,state,city].compact.join(',')
+ 		[address,postcode,city,state].compact.join(',')
 	end
 
 	geocoded_by :full_street_address

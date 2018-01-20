@@ -1,17 +1,29 @@
 .sectionstyle{
 	text-align: center;
-	background-color: #1E1E1E;
+	background-color: #FFFFFF;
+	border: 1px solid #484848;
+	height: 600px;
+	margin-bottom: 10px;	
 }
 
-.leftsectionstyle h1,h2{
+.leftsectionstyle h1{
 	font-family: 'Open Sans Condensed', sans-serif;
-	color: #FFFFFF;
+	color: #000000;
 	text-decoration: underline;
+	border-right-color: #FFFFFF;
+}
+
+.leftsectionstyle{
+	border-right-color: #FFFFFF;
+}
+
+.rightsectionstyle{
+	border-left-color: #FFFFFF;
 }
 
 .sectionstyle h4{
 	font-family: 'Open Sans', sans-serif;
-	color: #FFFFFF;
+	color: #000000;
 }	
 
 #jobName{
@@ -20,10 +32,15 @@
 
 .rightsectionstyle h1,h2{
 	font-family: 'Open Sans Condensed', sans-serif;
-	color: #FFFFFF;
+	color: #000000;
 }
 
 .timedatesection{
 	display: flex;
 	justify-content: space-around;
+}
+
+.flaticonstyle{
+	width: 41px;
+	height: 41px;
 }
