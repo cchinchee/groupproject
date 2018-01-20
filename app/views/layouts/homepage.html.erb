@@ -56,18 +56,32 @@
 <div class='container' id="homepagecontainer">
   <h1 id="latestjobheader">AVAILABLE JOB</h1>
   <br>
-  <% @job.each do |t| %>
-    <%= link_to job_path(t.id) do %>
-    <div class="thumbnail jobstyle">
-      <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-      <div class="caption">
-        <h3><%= t.name %></h3>
-        <h5><%= t.category %></h5>
-        <h5>RM <%= t.price %></h5>
+
+  <% if signed_in? || affiliate_signed_in? %>
+    <% @job.each do |t| %>
+      <%= link_to job_path(t.id) do %>
+      <div class="thumbnail jobstyle">
+        <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <div class="caption">
+          <h3><%= t.name %></h3>
+          <h5><%= t.category %></h5>
+          <h5>RM <%= t.price %></h5>
+        </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
-  <% end %>
+  <% else %>
+      <% @job.each do |t| %>
+      <div class="thumbnail jobstyle">
+        <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <div class="caption">
+          <h3><%= t.name %></h3>
+          <h5><%= t.category %></h5>
+          <h5>RM <%= t.price %></h5>
+        </div>
+      </div>
+    <% end %>  
+  <% end %>  
   <div id='paginate'>
     <div class='container'><%= paginate @job ,outer_window: 3%></div>
   </div>
