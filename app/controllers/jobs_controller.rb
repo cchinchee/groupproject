@@ -18,6 +18,10 @@ class JobsController < ApplicationController
 		redirect_to "/"
     end
 
+    def update
+        
+    end
+
     def check
         case params[:chosenCategory]
         when "Cleaning Service"
