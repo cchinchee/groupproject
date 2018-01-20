@@ -4,24 +4,40 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div><%= image_tag("userprofile.jpg",class:"thumbnail")%></div>
+		</div>
+		<div class="col-md-8">
 			<div class="thumnail">
-				<h1>About Me!</h1>
+			
+				<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+				<h4><%= current_user.email %></h4>
+				<h4><%= current_user.address %>, <%= current_user.postcode %>, <%= current_user.city %>, <%= current_user.state %>.</h4>
+				<h2>About Me!</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 			</div>	
 		</div>
-		<div class="col-md-8">
-			<div>
-				<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-			</div>
-			<div>
-				<h1>Job Posted Previously</h1>
-			</div>
-			<div>
-				<h1>Completed Job by </h1>
-			</div>
-		</div>
+	</div>
+	<div>
+		<h3>Requested Job</h3>
+
+	</div>
+	<div>
+		<h3>Completed Job</h3>
+
+		<% @job.each do |t| %>
+		  <%= link_to job_path(t.id) do %>
+		  <div class="thumbnail jobstyle">
+		    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+		    <div class="caption">
+		      <h3><%= t.name %></h3>
+		      <h5><%= t.category %></h5>
+		      <h5>RM <%= t.price %></h5>
+		    </div>
+		  </div>
+		  <% end %>
+		<% end %>
 	</div>
 </div>
 
 
+<%= render partial: "/layouts/footer" %>
