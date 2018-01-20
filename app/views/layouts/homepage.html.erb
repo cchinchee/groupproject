@@ -18,20 +18,19 @@
     <div class="item active">
       <%= image_tag ("picture1.jpg") %>
       <div class="carousel-caption">
-      	<h1 class="sectionheader">JOB. SECURITY</h1>
-      	<h3 class="sectionword">Partner with us to increasing your security </h3>
+      	<h1 class="sectionword">PARTNERSHIP · SECURITY </h1>
       </div>
     </div>
     <div class="item">
       <%= image_tag ("picture2.jpg") %>
       <div class="carousel-caption">
-      	<h1 class="sectionheader">FUTURE. TRAINING</h1>
+      	<h1 class="sectionheader">TRAINING · FUTURE</h1>
       </div>
     </div>
     <div class="item">
       <%= image_tag ("picture3.jpg") %>
       <div class="carousel-caption">
-      	<h1 class="sectionheader">CONTRIBUTE TO SOCIETY</h1>
+      	<h1 class="sectionheader">CONTRIBUTE · SOCIETY</h1>
       </div>
     </div>
   </div>
@@ -47,19 +46,16 @@
 
 <div id="guide_container">
 	<div>
-		<h1 class="sectionheader">What you should know </h1>
+		<h1 class="sectionheader">A GUIDE TO START </h1>
 	</div>
-	<div>
-		<%= button_to "Click For More", "/", class: "button" %>
+	<div class="button">
+		<%= button_to "CLICK FOR MORE", "/", class:"buttonstyle" %>
 	</div>
 </div>
 
-<div class='container'>
+<div class='container' id="homepagecontainer">
   <h1 id="latestjobheader">Latest Job</h1>
   <br>
-  <% if signed_in? %>
-  <h2><%= link_to 'Post a job', new_job_path %></h2>
-  <% end %>
   <% @job.each do |t| %>
     <%= link_to job_path(t.id) do %>
     <div class="thumbnail jobstyle">
@@ -75,6 +71,12 @@
   <div id='paginate'>
     <div class='container'><%= paginate @job ,window: 2%></div>
   </div>
+</div>
+
+<div class="joinusbutton">
+  <% if signed_in? %>
+    <%= button_to "JOIN US", "/", class:"joinusbuttonstyle" %>
+  <% end %>
 </div>
 
 <%= render partial: "/layouts/footer" %>
