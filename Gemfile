@@ -19,12 +19,14 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'coffee-rails'
 # Use flatpickr gem for calendar
 gem 'flatpickr_rails'
-
 # Use city-state for list of country and state
 gem 'city-state'
+# User google map
+gem 'geocoder'
+gem 'gmaps4rails'
 # Use figaro gem for privacy
 gem 'figaro'
 # Facebook Login

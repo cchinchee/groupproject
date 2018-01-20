@@ -11,6 +11,8 @@ class CreateJobs < ActiveRecord::Migration[5.1]
     	t.string :state
     	t.string :city
     	t.string :postcode
+        t.float :latitude
+        t.float :longitude
         t.references :user, foreign_key: true
     	t.references :affiliate, foreign_key: true
       

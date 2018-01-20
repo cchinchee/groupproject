@@ -1,30 +1,47 @@
 <%= render partial: "/layouts/navbar" %>
 
 <div class="container">
-	<div class="col-md-7 sectionstyle leftsectionstyle leftsection">
+	<div class="col-md-8 sectionstyle leftsectionstyle leftsection">
 		<h1 id="jobName"><%= @job.name %></h1>
-		<h2>Category</h2>
+		<h2><%= image_tag("003-2-squares.svg",class:"flaticonstyle")%></h2>
 		<h4>· <%= @job.category %></h4>
 		<div class="timedatesection">
 			<div>
-				<h2>Date</h2>
+				<h2><%= image_tag("008-calendar.svg",class:"flaticonstyle")%></h2>
 				<h4>· <%= @job.start_date %></h4>
 			</div>
 			<div>
-				<h2>Time</h2>
-				<h4>· <%= @job.start_time.strftime("%H:%M") %></h4>
+				<h2><%= image_tag("007-clock.svg",class:"flaticonstyle")%></h2>
+				<h4>· <%= @job.start_time %></h4>
 			</div>
 		</div>
-		<h2>Price</h2>
+		<h2><%= image_tag("005-price-tag.svg",class:"flaticonstyle")%></h2>
 		<h4>· <%= @job.price %></h4>
-		<h2>Address</h2>
-		<h4>· <%= @job.address %>,<%= @job.city %>,<%= @job.state %></h4>
-		<h2>Postcode</h2>
-		<h4>· <%= @job.postcode %></h4>
+		<h2><%= image_tag("004-placeholder.svg",class:"flaticonstyle")%></h2>
+		<h4>· <%= @job.address %>, <%= @job.postcode %>, <%= @job.city %>, </br><%= @job.state %></h4>
+		
 	</div>
-	<div class="col-md-1"></div>
 	<div class="col-md-4 sectionstyle rightsectionstyle">
-		<h2>Accept the job now </h2>
-		<%= button_to "Reserve", job_path, method: :patch %>
+		<h2><%= image_tag("002-map-perspective-with-a-placeholder-on-it.svg",class:"flaticonstyle")%></h2>
+		<div style='width: 356.667px;'>
+  			<div id="map" style='width: 356.667px; height: 400px;'>
+  			</div>
+		</div>
+		<h2><%= image_tag("001-restaurant.svg",class:"flaticonstyle")%></h2>
+		<%= button_to "Reserve", job_path, method: :patch %> %>
 	</div>
 </div>
+
+</br>
+
+<%= render partial: "/layouts/footer" %>
+
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  	markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  	handler.bounds.extendWith(markers);
+  	handler.fitMapToBounds();
+  	handler.getMap().setZoom(17);
+	});
+</script>

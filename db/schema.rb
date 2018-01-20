@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20180119082952) do
     t.string "state"
     t.string "city"
     t.string "postcode"
+    t.float "latitude"
+    t.float "longitude"
     t.bigint "user_id"
     t.bigint "affiliate_id"
     t.datetime "created_at", null: false
