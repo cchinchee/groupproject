@@ -19,7 +19,7 @@ class JobsController < ApplicationController
     end
 
     def update
-        p current_affiliate.email
+        # p current_affiliate.email
     end
 
     def check
