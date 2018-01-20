@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
+//= require flatpickr
 //= require_tree .
 
 // Place all the behaviors and hooks related to the matching controller here.

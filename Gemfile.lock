@@ -85,7 +85,12 @@ GEM
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
+<<<<<<< HEAD
     geocoder (1.4.5)
+=======
+    flatpickr_rails (1.1.0)
+      railties (>= 3.0)
+>>>>>>> master
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
@@ -245,8 +250,12 @@ DEPENDENCIES
   coffee-rails
   faker
   figaro
+<<<<<<< HEAD
   geocoder
   gmaps4rails
+=======
+  flatpickr_rails
+>>>>>>> master
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

@@ -31,16 +31,16 @@ affiliate['password'] = 'abcd'
 
 ActiveRecord::Base.transaction do
 	20.times do
-		user['first_name'] = Faker::Name.first_name
-		user['last_name'] = Faker::Name.last_name
-		user['email'] = Faker::Internet.email
-		user['phone'] = Faker::PhoneNumber.cell_phone
-		user['address'] = Faker::Address.street_address
-		user['city'] = Faker::Address.city
-		user['state'] = Faker::Address.state
-		user['postcode'] = Faker::Address.zip_code
-		user['verification_status'] = false
-		user['role'] = 0
+		affiliate['first_name'] = Faker::Name.first_name
+		affiliate['last_name'] = Faker::Name.last_name
+		affiliate['email'] = Faker::Internet.email
+		affiliate['phone'] = Faker::PhoneNumber.cell_phone
+		affiliate['address'] = Faker::Address.street_address
+		affiliate['city'] = Faker::Address.city
+		affiliate['state'] = Faker::Address.state
+		affiliate['postcode'] = Faker::Address.zip_code
+		affiliate['verification_status'] = false
+		affiliate['role'] = 0
 
 		Affiliate.create(affiliate)
 	end
