@@ -5,27 +5,32 @@
 	background-image: url('picture4.jpg');
 }
 
-h1 {
+h1.text {
+	margin-top: 100px;
+	color:#6F3A8F;
+}
+
+.text-right {
 	font-family: 'Sintony', sans-serif;
 	margin-right: 70px;
 	color: #FAFAFA;
-}
-
-.text {
-	margin-top: 100px;
 }
 .form-container {
 	width: 700px;
 	margin:auto;
 }
 
+h2.sub-title{
+	color:#6F3A8F;
+}
+
 .btn-apply {
-	font-family: 'Poppins', sans-serif;
-	border: 1.5px solid transparent;
-  border-color: #484848;
+  font-family: 'Poppins', sans-serif;
+  border: 1.5px solid transparent;
+  border-color: #6F3A8F;
   border-radius: 4px;
   cursor: pointer;
-  background:#484848;
+  background:#6F3A8F;
   font-size: 15px;
   line-height: 22px;
   padding-left: 24px;
