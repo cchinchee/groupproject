@@ -108,7 +108,7 @@
 </div>
 
 <div class="joinusbutton">
-  <% if !signed_in? %>
+  <% if !signed_in? && !affiliate_signed_in? %>
       <div>
         <%= button_to "JOIN US", "/", method: :get, class:"joinusbuttonstyle" %>        
       </div>

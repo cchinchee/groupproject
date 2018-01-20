@@ -10,6 +10,7 @@ module ApplicationHelper
 
 		if session[:affiliate_id] != nil
 			@current_affiliate = Affiliate.find(session[:affiliate_id])
+		
 		end
 	end
 	

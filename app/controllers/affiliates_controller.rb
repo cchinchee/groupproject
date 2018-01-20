@@ -6,14 +6,15 @@ class AffiliatesController < ApplicationController
 			session[:affiliate_id] = @affiliate.id
 			redirect_to job_show_all_job_path
 		else
-			render "/affiliates/signin"
+			redirect_to root_path
 		end 
 	end
 
 	def create
 		@new_affiliate = Affiliate.new(affiliate_params)
 		if @new_affiliate.save
-			redirect_to job_show_all_job_path
+			session[:affiliate_id] = @new_affiliate.id
+			redirect_to root_path
 		else
 			render "/affiliates/new"
 		end
