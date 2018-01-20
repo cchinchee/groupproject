@@ -9,13 +9,21 @@ class JobsController < ApplicationController
     end
 
     def show
-        
+        @jobs = Job.where(id: params[:id])
+        @hash = Gmaps4rails.build_markers(@jobs) do |job, marker|
+            marker.lat job.latitude
+            marker.lng job.longitude
+        end
     end
     
 	def create
 		@new_job = current_user.jobs.new(job_params)
 		@new_job.save
 		redirect_to "/"
+    end
+
+    def update
+        # p current_affiliate.email
     end
 
     def check
