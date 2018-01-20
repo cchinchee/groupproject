@@ -9,7 +9,7 @@
 <%= form_for Affiliate.new, url: affiliates_path do |form| %>
     <div class="text-field form-group">
         <%= form.text_field :first_name, placeholder: 'First Name', class:"form-control"%>
-    </div>
+    </div>  
 
     <div class="text-field form-group">
         <%= form.text_field :last_name, placeholder: 'Last Name', class:"form-control" %>
@@ -37,10 +37,7 @@
         <%= form.select :state, options_for_select(states, "Johor") , class:"form-control"%>
     </div>
 
-    <div class="select-field form-group", id="show-city", style="display: none">
-
-		<!-- not able to show city selection -->
-
+    <div class="select-field form-group", id="show-city-affiliate", style="display: none">
         <% city = [] %>
         <%= form.select :city, options_for_select(city) , class:"form-control"%>
     </div>
