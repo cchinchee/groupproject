@@ -19,7 +19,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="nav navbar-nav navbar-right-item"><%= link_to "Join Us as an Affiliate", affiliate_sign_up_path, class: "modal-btn navbar-right-1" %></li>
+        <li class="nav navbar-nav navbar-right-item"><%= link_to "Join Us", affiliate_sign_up_path, class: "modal-btn navbar-right-1" %></li>
         <li class="nav navbar-nav navbar-right-item"><%= link_to "Partnership", "/companies", class:"modal-btn navbar-right-1" %></li>
 
         <% if signed_in? %>
@@ -27,7 +27,9 @@
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" href="/users/<%= current_user.id %>/show"><%= image_tag("userprofile.jpg",class:"userlogo")%></a></li>
         <% else %>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#signUpModalMain">Sign Up</a></li>
-        <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#logInModal">Log In</a></li>
+        <li><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#logInModal">User Login</a></li>
+        <li><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#affiliatelogInModal">Affiliate Login</a></li>
+
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -115,7 +117,7 @@
   </div>
 </div>
 
-<!-- log in modal -->
+<!-- User log in modal -->
 
 <div class="modal fade text-center" id="logInModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -124,15 +126,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h3>Log in to continue</h3>
-        
-        
+        <h3>User Login to continue</h3>
       </div>
       
       <div class="modal-body">
           <div class="form-group ">
            
-
             <%= form_for :session, url: session_path do |form| %>
               <div class="text-field form-group">
                 <%= form.text_field :email, type: 'email', placeholder: "Email Address", class: "form-control" %>
@@ -186,6 +185,50 @@
   </div>
 </div>
 
+<!-- Affiliate log in modal -->
+
+<div class="modal fade text-center" id="affiliatelogInModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3>Affiliate Login to continue</h3>
+        
+      </div>
+      
+      <div class="modal-body">
+          <div class="form-group ">
+           
+
+            <%= form_for :session, url: session_path do |form| %>
+              <div class="text-field form-group">
+                <%= form.text_field :email, type: 'email', placeholder: "Email Address", class: "form-control" %>
+              </div>
+
+              <div class="password-field form-group">
+                <%= form.password_field :password, placeholder: "Create a Password", class: "form-control" %>
+              </div>
+
+              <div class="submit-field form-group" >
+                <%= form.submit 'Log In', class: "form-control form-group-submit" %>
+              </div>
+              <a class="modal-btn" data-toggle="modal" data-dismiss="modal" data-target="#forgotPasswordModal">Forgot password?</a>
+            <% end %>
+        
+              
+            
+          </div>
+      </div>
+
+      <div class="modal-footer">
+        <h4 class="modal-footer-content text-center">Don't have an account? <%= link_to "Apply Here", affiliate_sign_up_path, class: "modal-footer-content text-center modal-btn" %></h4>
+
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Forgot password? modal -->
 
 <div class="modal fade text-center" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
