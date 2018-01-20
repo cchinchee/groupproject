@@ -20,7 +20,7 @@ class AffiliatesController < ApplicationController
 	end
 
 	def sign_up
-		render "/affiliates/new"
+		
 	end
 
 	def sign_out
@@ -31,5 +31,5 @@ end
 
 private
 def affiliate_params
-	params.require(:affiliate).permit(:first_name, :last_name, :password, :email, :phone, :address, :city, :postcode, :state)
+	params.require(:affiliate).permit(:first_name, :last_name, :password, :email, :phone, :address, :city, :postcode, :state, {verification_documents: []})
 end
