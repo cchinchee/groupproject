@@ -8,24 +8,35 @@
 }
 
 #guide_container{
-	padding-top: 100px;
-	padding-left: 50px;
-	padding-right: 50px;
-	height:400px;
-	background-color: #009D3B;
+	padding-bottom: 0;
+	height:200px;
+	background-color: #484848;
 	color: white;
 	text-align: center;
 }
 
 #guide_container h1{
-	margin: 0 auto;
+	margin-top: 50px;
+	font-family: 'Sintony', sans-serif;
+	font-weight: 900;
+	font-size: 2.5em; 
 }
 
 .button{
 	color: black;
-	margin-top: 50px;
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+.buttonstyle{
+	border-radius: 10px;
+	border: 0;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 900;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .container{
@@ -40,6 +51,7 @@
 
 .jobstyle{
 	display: inline-block;
+	margin-bottom: 0;
 }
 
 .thumnail-image{
@@ -49,20 +61,41 @@
 #latestjobheader{
 	font-weight: 600;
 	font-size: 2.571em;
-	color: #00BA51;
+	color: #484848;
 	text-align: center;
 }
 
 .sectionheader{
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: 'Sintony', sans-serif;
+	font-weight: 900;
+	font-size: 2.5em;
 }
 
 .sectionword{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	font-size: 2.5em;
 }
-
 
 #paginate{
 	margin: 0 auto;
 	width: 200px; 
+}
+
+.joinusbuttonstyle{
+	border-radius: 10px;
+	border: 0;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 900;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #484848;
+}
+
+.joinusbutton{
+	margin: 0 auto;
+	color: #FFFFFF;
+	padding-bottom: 40px;
 }
