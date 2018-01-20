@@ -54,7 +54,7 @@
 </div>
 
 <div class='container' id="homepagecontainer">
-  <h1 id="latestjobheader">Latest Job</h1>
+  <h1 id="latestjobheader">AVAILABLE JOB</h1>
   <br>
   <% @job.each do |t| %>
     <%= link_to job_path(t.id) do %>
@@ -69,13 +69,28 @@
     <% end %>
   <% end %>
   <div id='paginate'>
-    <div class='container'><%= paginate @job ,window: 2%></div>
+    <div class='container'><%= paginate @job ,outer_window: 3%></div>
   </div>
 </div>
 
 <div class="joinusbutton">
+  <% if !signed_in? %>
+      <div>
+        <%= button_to "JOIN US", "/", method: :get, class:"joinusbuttonstyle" %>        
+      </div>
+  <% end %>
   <% if signed_in? %>
-    <%= button_to "JOIN US", "/", class:"joinusbuttonstyle" %>
+      <div>
+        <%= button_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
+      </div>
+      <div>
+        <%= button_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
+      </div>
+  <% end %>
+  <% if affiliate_signed_in? %>
+      <div>
+        <%= button_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
+      </div>
   <% end %>
 </div>
 

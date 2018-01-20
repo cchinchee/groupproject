@@ -4,7 +4,7 @@ class AffiliatesController < ApplicationController
 		@affiliate = Affiliate.find_by(email: params[:email])
 		if @affiliate && @affiliate.authenticate(params[:password])
 			session[:affiliate_id] = @affiliate.id
-			redirect_to root_path
+			redirect_to job_show_all_job_path
 		else
 			render "/affiliates/signin"
 		end 
@@ -13,7 +13,7 @@ class AffiliatesController < ApplicationController
 	def create
 		@new_affiliate = Affiliate.new(affiliate_params)
 		if @new_affiliate.save
-			redirect_to root_path
+			redirect_to job_show_all_job_path
 		else
 			render "/affiliates/new"
 		end

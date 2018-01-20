@@ -15,6 +15,10 @@ class JobsController < ApplicationController
             marker.lng job.longitude
         end
     end
+
+    def show_all_job
+        @job = Job.order(updated_at: :desc).page(params[:page]).per(16)
+    end
     
 	def create
 		@new_job = current_user.jobs.new(job_params)
