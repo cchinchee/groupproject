@@ -8,7 +8,10 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
     
-    resources :jobs, except: :index
+  get "/jobs/show_all_job" => "jobs#show_all_job", as: "job_show_all_job"
+  
+  resources :jobs, except: :index
+
     
   
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"

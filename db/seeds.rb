@@ -53,7 +53,7 @@ User.all.each { |u| uids << u.id }
 Affiliate.all.each { |u| aids << u.id }
 
 ActiveRecord::Base.transaction do
-  2.times do 
+  40.times do 
     job['name'] = Faker::App.name
     job['category'] = ["Cooking","Tuition","Cleaning","Driving","Plumbing","Daycare"].sample
     job['start_date'] = Faker::Date.forward(1)
