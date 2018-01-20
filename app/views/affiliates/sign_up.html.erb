@@ -1,0 +1,69 @@
+<%= render partial: "/layouts/navbar" %>
+
+
+<div class="form-container">
+
+	<div class="sub-title">
+		<h4>Apply Your Account HERE</h4>
+	</div>	
+<%= form_for Affiliate.new, url: affiliates_path do |form| %>
+    <div class="text-field form-group">
+        <%= form.text_field :first_name, placeholder: 'First Name', class:"form-control"%>
+    </div>
+
+    <div class="text-field form-group">
+        <%= form.text_field :last_name, placeholder: 'Last Name', class:"form-control" %>
+    </div>
+
+    <div class="text-field form-group">
+        <%= form.text_field :email, placeholder: 'Email' , class:"form-control"%>
+    </div>
+
+    <div class="text-field form-group">
+        <%= form.text_field :phone, placeholder: 'Phone' , class:"form-control"%>
+    </div>
+
+    <div class="text-field form-group">
+        <%= form.text_field :address, placeholder: 'Address' , class:"form-control"%>
+    </div>
+
+    <div class="text-field form-group">
+        <%= form.text_field :postcode, placeholder: 'Postcode', class:"form-control"%>
+    </div>  
+
+    <div class="select-field form-group">
+        <% states = [] %>
+        <% CS.states(:my).each do |x, y| states << y.to_s %><% end %>
+        <%= form.select :state, options_for_select(states, "Johor") , class:"form-control"%>
+    </div>
+
+    <div class="select-field form-group", id="show-city", style="display: none">
+
+		<!-- not able to show city selection -->
+
+        <% city = [] %>
+        <%= form.select :city, options_for_select(city) , class:"form-control"%>
+    </div>
+
+    <div class="text-field form-group">
+    	<p>Please provide supporting documents for verfification.
+    		<%= form.file_field :verfification_documents, multiple: true%></p>	
+    </div>	
+
+    <div class="text-field form-group">
+        <%= form.password_field :password ,placeholder: 'Password' , class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Apply", class: "btn-submit" %>
+    </div> 
+
+<% end %>
+</div>
+<br>
+<footer id="myFooter">
+
+    <div class="footer-copyright">
+        <p>© 2018 Copyright Text </p>
+    </div>
+</footer>
