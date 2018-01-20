@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
   
+  # ajax
   post '/states/check' => 'users#check'
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
