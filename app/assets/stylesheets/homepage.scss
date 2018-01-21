@@ -52,9 +52,9 @@
 .thumbnail{
 	border-radius: 50%;
 	width:235.25px;
-
 	height: 250px;
 	border-color: #fff;
+	padding-right: 20px;
 }
 
 .jobstyle{
@@ -64,6 +64,40 @@
 
 .thumnail-image{
 	border-radius: 25px;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.thumbnailhoverclass{
+	position: relative;
+}
+
+.overlay{
+	position: absolute;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	background-color: #008CBA;
+  	overflow: hidden;
+  	width: 0;
+  	height: 100%;
+  	transition: .5s ease;
+}
+
+.thumbnail:hover .overlay{
+	width: 100%;
+}
+
+.overlaytext {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 #latestjobheader{
