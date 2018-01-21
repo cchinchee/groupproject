@@ -25,10 +25,9 @@
 		  <div class="thumbnail jobstyle">
 		    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
 		    <div class="caption">
-		      <h3><%= t.name %></h3>
+		      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
 		      <h5><%= t.category %></h5>
 		      <h5>RM <%= t.price %></h5>
-		      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
 		      <% if t.status == 0 %>
 		      	<h5><%= t.status %></h5>
 		      	<%= button_to "Edit", "#" %>
@@ -48,9 +47,8 @@
 		  <div class="thumbnail jobstyle">
 		    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
 		    <div class="caption">
-		      <h3><%= t.name %></h3>
-		      <h5><%= t.category %></h5>
 		      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
+		      <h5><%= t.category %></h5>
 
 		      <h5>RM <%= t.price %></h5>
 		      <%= button_to "Review", "#" %>
