@@ -97,7 +97,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 #latestjobheader{
@@ -151,8 +151,7 @@
 }
 
 .caption{
-	display: flex;
-	justify-content: space-around;
+	text-align: center;
 }
 
 #jobthumbnailName{
