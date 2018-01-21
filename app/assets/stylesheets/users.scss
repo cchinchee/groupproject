@@ -4,6 +4,10 @@
   
 }*/
 
+div.user-photo{
+  border-radius: 50%;
+}
+
 .navbar-right-item{
   height: auto;
   vertical-align: middle;
@@ -153,4 +157,8 @@ a.login-text {
     color: #818078;
     background-color: #fcfcfa;
   }
+}
+
+h1.showpage-name, h3.showpage-title {
+  color:#6F3A8F;
 }
