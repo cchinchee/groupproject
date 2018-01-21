@@ -25,7 +25,10 @@
         <% if signed_in? %>
         <li class="nav navbar-nav navbar-right-item"><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" id="userlogostyle" href="/users/<%= current_user.id %>/show"><%= image_tag("userprofile.jpg",class:"userlogo")%></a></li>
-        <% else %>
+        <% elsif affiliate_signed_in? %>
+        <li class="nav navbar-nav navbar-right-item"><%= link_to 'Sign out', affiliate_sign_out_path %></li>
+        <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" id="userlogostyle" href="/users/<%= current_affiliate.id %>/show"><%= image_tag("userprofile.jpg",class:"userlogo")%></a></li>
+        <% elsif !signed_in? && !affiliate_signed_in? %>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#signUpModalMain">Sign Up</a></li>
         <li><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#logInModal">User Login</a></li>
         <li><a class="modal-btn navbar-right-1" data-toggle="modal" data-target="#affiliatelogInModal">Affiliate Login</a></li>
@@ -202,7 +205,7 @@
           <div class="form-group ">
            
 
-            <%= form_for :session, url: session_path do |form| %>
+            <%= form_for :session, url: affiliate_sign_in_path do |form| %>
               <div class="text-field form-group">
                 <%= form.text_field :email, type: 'email', placeholder: "Email Address", class: "form-control" %>
               </div>
