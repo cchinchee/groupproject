@@ -17,7 +17,7 @@ class JobsController < ApplicationController
     end
 
     def show_all_job
-        @job = Job.order(updated_at: :desc).page(params[:page]).per(16)
+        @job = Job.where(status: 0).order(updated_at: :desc).page(params[:page]).per(16)
     end
     
 	def create
