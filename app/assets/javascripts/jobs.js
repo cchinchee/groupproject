@@ -23,6 +23,7 @@ document.addEventListener("turbolinks:load", function(){
 			request.onreadystatechange = function(response){
 				if (request.readyState === XMLHttpRequest.DONE && request.status === 200){
 					finalPrice = JSON.parse(request.responseText).chosenPrice
+					
 					priceInput.value = finalPrice
 				}
 			}
