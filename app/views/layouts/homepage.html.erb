@@ -94,10 +94,14 @@
       <% @job.each do |t| %>
       <div class="thumbnail jobstyle">
         <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <h3 id="jobthumbnailName"><%= t.name %></h3>
         <div class="caption">
-          <h3><%= t.name %></h3>
-          <h5><%= t.category %></h5>
-          <h5>RM <%= t.price %></h5>
+          <div class="captionPriceCategory">
+            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+          </div>
+          <div class="captionPriceCategory">
+            <h5 id="jobthumbnailCategory"><%= t.category %></h5>
+          </div>
         </div>
       </div>
     <% end %>  
