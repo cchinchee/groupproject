@@ -12,7 +12,7 @@
 			</div>
 			<div>
 				<h2><%= image_tag("007-clock.svg",class:"flaticonstyle")%></h2>
-				<h4>· <%= @job.start_time %></h4>
+				<h4>· <%= @job.start_time.strftime("%H:%M") %></h4>
 			</div>
 		</div>
 		<h2><%= image_tag("005-price-tag.svg",class:"flaticonstyle")%></h2>
