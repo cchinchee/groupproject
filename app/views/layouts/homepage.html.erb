@@ -46,35 +46,73 @@
 
 <div id="guide_container">
 	<div>
-		<h1 class="sectionheader">A GUIDE TO START </h1>
+		<h1 class="sectionheader">A GUIDE TO START</h1>
 	</div>
 	<div class="button">
 		<%= button_to "CLICK FOR MORE", "/", class:"buttonstyle" %>
 	</div>
 </div>
 
+<div id="service_container">
+  <div>
+    <h1>SERVICES COVERED BY US</h1>
+  </div>
+  <div class="serviceCoveredSection">
+    <div><%= image_tag("catering.jpg", class:"servicesimage")%><h4>Catering</h4></div>
+    <div><%= image_tag("cleaningservice.jpg", class:"servicesimage")%><h4>Cleaning</h4></div>
+    <div><%= image_tag("mover.jpg", class:"servicesimage")%><h4>Mover</h4></div>
+    <div><%= image_tag("plumbing.png", class:"servicesimage")%><h4>Plumbing</h4></div>
+    <div><%= image_tag("gadgetservice", class:"servicesimage")%><h4>Gadget Repair</h4></div>
+  </div>
+  <div>
+    <h4>and more...</h4>
+  </div>  
+</div>
+
 <div class='container' id="homepagecontainer">
   <h1 id="latestjobheader">AVAILABLE JOB</h1>
   <br>
-  <% @job.each do |t| %>
-    <%= link_to job_path(t.id) do %>
-    <div class="thumbnail jobstyle">
-      <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-      <div class="caption">
-        <h3><%= t.name %></h3>
-        <h5><%= t.category %></h5>
-        <h5>RM <%= t.price %></h5>
+
+  <% if signed_in? || affiliate_signed_in? %>
+    <% @job.each do |t| %>
+      <%= link_to job_path(t.id) do %>
+      <div class="thumbnail jobstyle">
+        <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <h3 id="jobthumbnailName"><%= t.name %></h3>
+        <div class="caption">
+          <div class="captionPriceCategory">
+            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+          </div>
+          <div class="captionPriceCategory">
+            <h5 id="jobthumbnailCategory"><%= t.category %></h5>
+          </div>
+        </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
-  <% end %>
+  <% else %>
+      <% @job.each do |t| %>
+      <div class="thumbnail jobstyle">
+        <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <h3 id="jobthumbnailName"><%= t.name %></h3>
+        <div class="caption">
+          <div class="captionPriceCategory">
+            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+          </div>
+          <div class="captionPriceCategory">
+            <h5 id="jobthumbnailCategory"><%= t.category %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>  
+  <% end %>  
   <div id='paginate'>
-    <div class='container'><%= paginate @job ,outer_window: 3%></div>
+    <div class='container paginatecontainer'><%= paginate @job ,outer_window: 3%></div>
   </div>
 </div>
 
 <div class="joinusbutton">
-  <% if !signed_in? %>
+  <% if !signed_in? && !affiliate_signed_in? %>
       <div>
         <%= button_to "JOIN US", "/", method: :get, class:"joinusbuttonstyle" %>        
       </div>

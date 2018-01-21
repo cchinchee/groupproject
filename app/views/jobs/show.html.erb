@@ -1,5 +1,11 @@
 <%= render partial: "/layouts/navbar" %>
 
+<div class="row">
+	<div class="jobShowTopSection">
+		<h1>Job</h1>
+	</div>	
+</div>
+
 <div class="container">
 	<div class="col-md-8 sectionstyle leftsectionstyle leftsection">
 		<h1 id="jobName"><%= @job.name %></h1>
@@ -12,11 +18,11 @@
 			</div>
 			<div>
 				<h2><%= image_tag("007-clock.svg",class:"flaticonstyle")%></h2>
-				<h4>· <%= @job.start_time %></h4>
+				<h4>· <%= @job.start_time.strftime("%H:%M %P") %></h4>
 			</div>
 		</div>
 		<h2><%= image_tag("005-price-tag.svg",class:"flaticonstyle")%></h2>
-		<h4>· <%= @job.price %></h4>
+		<h4>· RM <%= @job.price %></h4>
 		<h2><%= image_tag("004-placeholder.svg",class:"flaticonstyle")%></h2>
 		<h4>· <%= @job.address %>, <%= @job.postcode %>, <%= @job.city %>, </br><%= @job.state %></h4>
 		
