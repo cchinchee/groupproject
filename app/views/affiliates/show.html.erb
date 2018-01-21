@@ -32,26 +32,38 @@
 	  </ul>
 	</div>
 	<div>
-		<h3 class="showpage-title">Upcoming Job</h3>
-		<% @requested = @job.where(status: "1") %>
-		<% @requested.each do |t| %>
-		  <%= link_to job_path(t.id) do %>
-		  <div class="thumbnail jobstyle">
-		    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-		    <div class="caption">
-		      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
-		      <h5><%= t.category %></h5>
-		      <h5>RM <%= t.price %></h5>
-		      <% if t.status == 0 %>
-		      	<h5><%= t.status %></h5>
-		      	<%= button_to "Edit", "#" %>
-		      <% else t.status == 1 %>
-		      	<h5><%= t.status %> by NAME</h5>
-		      <% end %>		
-		    </div>
-		  </div>
-		  <% end %>
+		<% if affiliate_signed_in? %>
+			<h3 class="showpage-title">Upcoming Job</h3>
+			<% @requested = @job.where(status: "1") %>
+			<% @requested.each do |t| %>
+			  <%= link_to job_path(t.id) do %>
+			  <div class="thumbnail jobstyle">
+			    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+			    <div class="caption">
+			      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
+			      <h5><%= t.category %></h5>
+			      <h5>RM <%= t.price %></h5>
+			      <h5><%= t.status %> by NAME</h5>
+			    </div>
+			  </div>
+			  <% end %>
+			<% end %>
+		<% else %>
+			<h3 class="showpage-title">Completed Job</h3>
+			<% @requested = @job.where(status: "2") %>
+			<% @requested.each do |t| %>
+			  <%= link_to job_path(t.id) do %>
+			  <div class="thumbnail jobstyle">
+			    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+			    <div class="caption">
+			      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
+			      <h5><%= t.category %></h5>
+			    </div>
+			  </div>
+			  <% end %>
+			<% end %>
 		<% end %>
+
 	</div>
 	<div>
 		<h3 class="showpage-title">Reviews</h3>
