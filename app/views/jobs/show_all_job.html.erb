@@ -26,10 +26,7 @@
 
 <div class="joinusbutton">
   <% if signed_in? %>
-    <%= button_to "POST A JOB", "/", class:"joinusbuttonstyle" %>
-  <% end %>
-  <% if affiliate_signed_in? %>
-    <%= button_to "ACCEPT A JOB", "/", class:"joinusbuttonstyle" %>
+    <%= button_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
   <% end %>
 </div>
 
