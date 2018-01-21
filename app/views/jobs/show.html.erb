@@ -37,7 +37,25 @@
   			</div>
 		</div>
 		<h2><%= image_tag("001-restaurant.svg",class:"flaticonstyle")%></h2>
-		<%= button_to "Reserve", job_path, method: :patch, class:"reservebutton" %>
+		<% if affiliate_signed_in? %>
+			<% if current_affiliate.jobs.include? @job && @job.status == "Accepted" %>
+				<%= button_to "ACCEPTED", nil, disabled: true %>
+			<% elsif @job.user_id == nil %>
+				<%= button_to "Reserve", job_path, method: :patch, class:"reservebutton" %>
+				<% end %>
+		<% end %>
+
+		<% if signed_in? %>
+			<% if (@job.user.id == current_user.id) && @job.status == "Accepted" %>
+				<%= button_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
+			<% elsif (@job.user.id == current_user.id) && @job.status == "Pending" %>
+				<%= button_to "Waiting for Acceptance", nil, disabled: true, class: "reservebutton" %>
+			<% end %>
+		<% end %>
+
+		<% if (signed_in? || affiliate_signed_in?) && @job.status == "Completed" %>
+			<%= button_to "COMPLETED", nil, disabled: true, class: "reservebutton" %>
+		<% end %>
 	</div>
 </div>
 </div>
