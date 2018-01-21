@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		
 		@job = Job.where(user_id: params[:id])
 		render 'users/show'
 	end
