@@ -19,7 +19,7 @@
 	margin-top: 50px;
 	font-family: 'Sintony', sans-serif;
 	font-weight: 900;
-	font-size: 2.5em; 
+	font-size: 2.5em;
 }
 
 .button{
@@ -48,6 +48,7 @@
 .thumbnail{
 	border-radius: 50%;
 	width:235.25px;
+
 	height: 250px;
 	border-color: #fff;
 }
@@ -104,4 +105,61 @@
 	padding-bottom: 40px;
 	display: flex;
 	justify-content: space-around;
+}
+
+.caption{
+	display: flex;
+	justify-content: space-around;
+}
+
+#jobthumbnailName{
+	text-align: center;
+	height: 36px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	font-family: 'Sintony', sans-serif;
+	color: #484848;
+}
+
+.captionPriceCategory{
+	padding-top: 0;
+}
+
+#jobthumbnailPrice{
+	font-family: 'Poppins', sans-serif;
+	height: 22px;
+	font-weight: 700;
+	margin:0;
+	color: #f57224;
+}
+
+#jobthumbnailCategory{
+	font-family: 'Poppins', sans-serif;
+	margin:0;
+	color: #484848;
+}
+
+#service_container{
+	background-color: #ccc;
+	text-align: center;
+	padding-bottom: 0;
+	/*height:200px;*/
+}
+
+#service_container h1{
+	color: #484848;
+}
+
+.serviceCoveredSection{
+	display: flex;
+	justify-content: space-around;
+	color: #484848;
+	font-family: 'Poppins', sans-serif;
+	padding-top: 20px;
+}
+
+.servicesimage{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
 }
