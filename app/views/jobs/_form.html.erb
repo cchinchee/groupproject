@@ -1,42 +1,47 @@
 <%= form_for Job.new, url: jobs_path do |form| %>
 
-    <div class="text-field form-group col-md-6">
-        <%= form.text_field :name, placeholder: 'Name', class:"form-control"%>
-    </div>
+   <!--  <div class="text-field form-group">
+        <%# form.hidden_field :name, placeholder: 'Name', class:"form-control"%>
+    </div> -->
+
+    <%= form.hidden_field :name, value: current_user.first_name%>
     
     <% category = ["Cleaning Service", "Catering Service", "Mobile and Laptop Repair", "Home Maintenance", "Movers", "Plumbing Service"] %>
-
-    <div class="text-field form-group col-md-6">
-        <%= form.select :category, options_for_select(category), class: "form-control" %>
+    <div class="serviceCoveredSection">
+      <div><%= image_tag("catering.jpg", class:"servicesimage")%><h4>Catering</h4></div>
+      <div><%= image_tag("cleaningservice.jpg", class:"servicesimage")%><h4>Cleaning</h4></div>
+      <div><%= image_tag("mover.jpg", class:"servicesimage")%><h4>Mover</h4></div>
+      <div><%= image_tag("plumbing.png", class:"servicesimage")%><h4>Plumbing</h4></div>
+      <div><%= image_tag("gadgetservice", class:"servicesimage")%><h4>Gadget Repair</h4></div>
     </div>
-    
-    <div class="text-field form-group col-md-6">
+  
+    <div class="text-field form-group">
+        <%= form.select :category, options_for_select(category), class: "form-control col-md-6 form-text" %>
+    </div>
+    <div class="text-field form-group">
+       <h5> RM<%= form.text_field :price, placeholder: "Price", class: "form-text", readonly: true %></h4>
+    </div>
+
+    <div class="text-field form-group">
         <%= form.date_field :start_date, placeholder: 'Start Date', class: "form-control"%>
     </div>
     
-    <div class="text-field form-group col-md-6">
+    <div class="text-field form-group">
         <%= form.time_field :start_time, placeholder: 'Start Time', class: "form-control"%>
     </div>
 
-    <div class="text-field form-group col-md-6">
-        <%= form.text_field :description, placeholder: 'Description', class: "form-control"%>
-    </div>
     
-    <div class="text-field form-group col-md-6">
-        RM<%= form.text_field :price, placeholder: "Price", class: "form-control", readonly: true %>
-    </div>
-    
-    <div class="text-field form-group col-md-6">
+    <div class="text-field form-group">
         <%= form.text_field :address, placeholder: 'Address', class: "form-control"%>
     </div>
     
-    <div class="select-field form-group col-md-6">
+    <div class="select-field form-group">
         <% states = [] %>
         <% CS.states(:my).each do |x, y| states << y.to_s end %>
         <%= form.select :state, options_for_select(states, "Johor"), class: "form-control"%>
     </div>
     
-    <div class="select-field form-group col-md-5", id="show-city-job", style="display: none">
+    <div class="select-field form-group", id="show-city-job", style="display: none">
         <% city = [] %>
         <%= form.select :city, options_for_select(city) , class: "form-control"%>
     </div>
@@ -45,6 +50,10 @@
         <%= form.text_field :postcode, placeholder: 'Postcode', class: "form-control"%>
     </div>  
     
+    <div class="text-field form-group">
+        <%= form.text_field :description, placeholder: 'Description', class: "form-control"%>
+    </div>
+
     <div class="form-group">
       <%= form.submit "Post a job", class: "text-field btn-submit form-control" %>
     </div>
