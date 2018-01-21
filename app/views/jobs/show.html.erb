@@ -37,7 +37,9 @@
   			</div>
 		</div>
 		<h2><%= image_tag("001-restaurant.svg",class:"flaticonstyle")%></h2>
-		<%= button_to "Reserve", job_path, method: :patch, class:"reservebutton" %>
+		<% if affiliate_signed_in? %>
+			<%= button_to "Reserve", job_path, method: :patch, class:"reservebutton" %>
+		<% end %>
 	</div>
 </div>
 </div>
