@@ -45,8 +45,12 @@
 				<% end %>
 		<% end %>
 
-		<% if signed_in? && Job.find_by(user_id: current_user.id, status: 1)%>
-			<%= button_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
+		<% if signed_in? %>
+			<% if (@job.user.id == current_user.id) && @job.status == "Accepted" %>
+				<%= button_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
+			<% elsif (@job.user.id == current_user.id) && @job.status == "Pending" %>
+				<%= button_to "Waiting for Acceptance", nil, disabled: true, class: "reservebutton" %>
+			<% end %>
 		<% end %>
 
 		<% if (signed_in? || affiliate_signed_in?) && @job.status == "Completed" %>
