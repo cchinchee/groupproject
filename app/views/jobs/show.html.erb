@@ -18,11 +18,11 @@
 			</div>
 			<div>
 				<h2><%= image_tag("007-clock.svg",class:"flaticonstyle")%></h2>
-				<h4>· <%= @job.start_time.strftime("%H:%M") %></h4>
+				<h4>· <%= @job.start_time.strftime("%H:%M %P") %></h4>
 			</div>
 		</div>
 		<h2><%= image_tag("005-price-tag.svg",class:"flaticonstyle")%></h2>
-		<h4>· <%= @job.price %></h4>
+		<h4>· RM <%= @job.price %></h4>
 		<h2><%= image_tag("004-placeholder.svg",class:"flaticonstyle")%></h2>
 		<h4>· <%= @job.address %>, <%= @job.postcode %>, <%= @job.city %>, </br><%= @job.state %></h4>
 		
