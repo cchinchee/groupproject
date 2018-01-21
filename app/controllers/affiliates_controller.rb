@@ -10,6 +10,12 @@ class AffiliatesController < ApplicationController
 		# end 
 	end
 
+	def show
+		@affiliate = Affiliate.find_by(id: params[:id])
+		@job = Job.where(affiliate_id: params[:id])
+	end
+
+
 	def create
 		@new_affiliate = Affiliate.new(affiliate_params)
 		if @new_affiliate.save

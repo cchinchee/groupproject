@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   get "/affiliates/get_sign_in" => "affiliates#get_sign_in", as: "affiliate_get_sign_in"
   get "/affiliates/sign_out" => "affiliates#sign_out", as: "affiliate_sign_out"
   get "/affiliates/sign_up" => "affiliates#sign_up", as: "affiliate_sign_up"
-  resources :affiliates, only: :create
+  resources :affiliates
 
+  get "/training_courses" => "training_courses#show"
 
 end
