@@ -33,17 +33,17 @@ class JobsController < ApplicationController
     def check
         case params[:chosenCategory]
         when "Cleaning Service"
-            price = "RM 80"
+            price = 80
         when "Catering Service"
-            price = "RM 100"
+            price = 100
         when "Mobile and Laptop Repair"
-            price = "RM 150"
+            price = 150
         when "Home Maintenance"
-            price = "RM 60"
+            price = 60
         when "Movers"
-            price = "RM 70"
+            price = 70
         when "Plumbing Service"
-            price = "RM 60"
+            price = 60
         end
 
         render json: {chosenPrice: price}.to_json
