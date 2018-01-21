@@ -45,6 +45,10 @@
 	width:1000px;
 }
 
+#homepagecontainer{
+	padding-bottom: 0;
+}
+
 .thumbnail{
 	border-radius: 50%;
 	width:235.25px;
@@ -55,7 +59,7 @@
 
 .jobstyle{
 	display: inline-block;
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 .thumnail-image{
@@ -84,6 +88,11 @@
 #paginate{
 	margin: 0 auto;
 	width: 200px; 
+}
+
+.paginatecontainer{
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .joinusbuttonstyle{
