@@ -38,11 +38,19 @@
 		</div>
 		<h2><%= image_tag("001-restaurant.svg",class:"flaticonstyle")%></h2>
 		<% if affiliate_signed_in? %>
-			<% if current_affiliate.jobs.include? @job %>
-				<h2>Pending</h2>
-			<% else %>
+			<% if current_affiliate.jobs.include? @job && @job.status == "Accepted" %>
+				<%= button_to "ACCEPTED", nil, disabled: true %>
+			<% elsif @job.user_id == nil %>
 				<%= button_to "Reserve", job_path, method: :patch, class:"reservebutton" %>
 				<% end %>
+		<% end %>
+
+		<% if signed_in? && Job.find_by(user_id: current_user.id, status: 1)%>
+			<%= button_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
+		<% end %>
+
+		<% if (signed_in? || affiliate_signed_in?) && @job.status == "Completed" %>
+			<%= button_to "COMPLETED", nil, disabled: true, class: "reservebutton" %>
 		<% end %>
 	</div>
 </div>
