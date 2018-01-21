@@ -27,7 +27,15 @@ class JobsController < ApplicationController
     end
 
     def update
-        # p current_affiliate.email
+        @reserve_job = Job.find_by(id: params[:id])
+
+        if @reserve_job.status == "Accepted" && @reserve_job.affiliate_id != nil
+            @reserve_job.update(status: 2)
+        else
+            @reserve_job.update(status: 1, affiliate_id: current_affiliate.id)
+        end
+
+        redirect_to "/jobs/#{params[:id]}"
     end
 
     def check

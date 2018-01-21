@@ -1,13 +1,12 @@
 <%= render partial: "/layouts/navbar" %>
 
-<div class="row">
-	<div class="jobShowTopSection">
-		<h1>Job</h1>
-	</div>	
-</div>
-
+<div class="row rowcontainer">
 <div class="container">
-	<div class="col-md-8 sectionstyle leftsectionstyle leftsection">
+	<div class="col-md-7 sectionstyle leftsectionstyle leftsection">
+		<div id="boardheadersection">
+			<div><%= image_tag("boardpin.jpg",class:"boardpinstyle")%></div>
+			<div class="boardheader"><h1 id="boardheaderWord">Job Posting</h1></div>
+		</div>
 		<h1 id="jobName"><%= @job.name %></h1>
 		<h2><%= image_tag("003-2-squares.svg",class:"flaticonstyle")%></h2>
 		<h4>· <%= @job.category %></h4>
@@ -27,15 +26,38 @@
 		<h4>· <%= @job.address %>, <%= @job.postcode %>, <%= @job.city %>, </br><%= @job.state %></h4>
 		
 	</div>
+	<div class="col-md-1"></div>
 	<div class="col-md-4 sectionstyle rightsectionstyle">
-		<h2><%= image_tag("002-map-perspective-with-a-placeholder-on-it.svg",class:"flaticonstyle")%></h2>
+		<div class="mapheadersection">
+			<div><%= image_tag("boardpin.jpg",class:"mappinstyle")%></div>
+			<div><h4 id="mapheaderWord"><%= image_tag("googlemap.png",class:"flaticonstyle")%> Location At</h4></div>
+		</div>
 		<div style='width: 356.667px;'>
   			<div id="map" style='width: 356.667px; height: 400px;'>
   			</div>
 		</div>
 		<h2><%= image_tag("001-restaurant.svg",class:"flaticonstyle")%></h2>
-		<%= button_to "Reserve", job_path, method: :patch %>
+		<% if affiliate_signed_in? %>
+			<% if current_affiliate.jobs.include? @job && @job.status == "Accepted" %>
+				<%= button_to "ACCEPTED", nil, disabled: true %>
+			<% elsif @job.user_id == nil %>
+				<%= button_to "Reserve", job_path, method: :patch, class:"reservebutton" %>
+				<% end %>
+		<% end %>
+
+		<% if signed_in? %>
+			<% if (@job.user.id == current_user.id) && @job.status == "Accepted" %>
+				<%= button_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
+			<% elsif (@job.user.id == current_user.id) && @job.status == "Pending" %>
+				<%= button_to "Waiting for Acceptance", nil, disabled: true, class: "reservebutton" %>
+			<% end %>
+		<% end %>
+
+		<% if (signed_in? || affiliate_signed_in?) && @job.status == "Completed" %>
+			<%= button_to "COMPLETED", nil, disabled: true, class: "reservebutton" %>
+		<% end %>
 	</div>
+</div>
 </div>
 
 </br>

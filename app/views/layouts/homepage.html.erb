@@ -77,14 +77,16 @@
     <% @job.each do |t| %>
       <%= link_to job_path(t.id) do %>
       <div class="thumbnail jobstyle">
+        <div class="thumbnailhoverclass">
         <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <div class="overlay">
+          <div class="overlaytext"><%= t.category %></div>
+        </div>
+        </div>
         <h3 id="jobthumbnailName"><%= t.name %></h3>
         <div class="caption">
           <div class="captionPriceCategory">
             <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
-          </div>
-          <div class="captionPriceCategory">
-            <h5 id="jobthumbnailCategory"><%= t.category %></h5>
           </div>
         </div>
       </div>
@@ -93,14 +95,16 @@
   <% else %>
       <% @job.each do |t| %>
       <div class="thumbnail jobstyle">
+        <div class="thumbnailhoverclass">
         <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <div class="overlay">
+          <div class="overlaytext"><%= t.category %></div>
+        </div>
+        </div>
         <h3 id="jobthumbnailName"><%= t.name %></h3>
         <div class="caption">
           <div class="captionPriceCategory">
             <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
-          </div>
-          <div class="captionPriceCategory">
-            <h5 id="jobthumbnailCategory"><%= t.category %></h5>
           </div>
         </div>
       </div>

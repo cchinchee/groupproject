@@ -1,27 +1,53 @@
-.jobShowTopSection{
-	background-color: #484848;
-	color: #FFFFFF;
-	text-align: center;
-	height: 100px;
-	margin-bottom: 10px;
+.rowcontainer{
+	background-image: image-url('woodenboard.jpg');
 }
 
-.jobShowTopSection h1{
-	font-weight: 900;
-	font-size: 5em;
-	padding-top: 11px;
+#boardheadersection{
+	display: flex;
+	border-bottom: 1px solid black;
 }
 
-.jobShowTopSectionChild{
-	line-height: 100px;
+.boardheader{
+	padding-left: 140px;
+}
+
+#boardheaderWord{
+	text-decoration: none;
+	font-size: 3em;
+}
+
+.boardpinstyle{
+	width: 50px;
+	height: 50px;
+}
+
+.mapheadersection{
+	display: flex;
+}
+
+.mappinstyle{
+	width: 50px;
+	height: 50px;
+}
+
+#mapheaderWord{
+	padding-left: 24px;
 }
 
 .sectionstyle{
 	text-align: center;
-	background-color: #FFFFFF;
-	border: 1px solid #484848;
 	height: 600px;
 	margin-bottom: 25px;	
+}
+
+.leftsectionstyle{
+	background-image: image-url('paper.jpg');
+	background-size: cover;
+}
+
+.rightsectionstyle{
+	background-image: image-url('paper.jpg');
+	background-size: cover;	
 }
 
 .leftsectionstyle h1{
@@ -31,21 +57,13 @@
 	border-right-color: #FFFFFF;
 }
 
-.leftsectionstyle{
-	border-right-color: #FFFFFF;
-}
-
-.rightsectionstyle{
-	border-left-color: #FFFFFF;
-}
-
 .sectionstyle h4{
 	font-family: 'Open Sans', sans-serif;
 	color: #000000;
 }	
 
 #jobName{
-	font-size: 6em;
+	font-size: 3em;
 }
 
 .rightsectionstyle h1,h2{
@@ -61,4 +79,19 @@
 .flaticonstyle{
 	width: 41px;
 	height: 41px;
+}
+
+.reservebutton{
+	background-color: red;
+	color: #FFFFFF;
+	border: 1px solid red;
+	padding: 10px;
+	border-radius: 25px; 
+	font-weight: 900;
+	font-size: 1.5em;
+	opacity: 0.6;
+}
+
+.reservebutton:hover{
+	opacity: 1;
 }
