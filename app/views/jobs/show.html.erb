@@ -54,17 +54,16 @@
 			<% end %>
 		<% end %>
 
-		<% if signed_in? %>
-			<% if (@job.user.id == current_user.id) && @job.status == "accepted" %>
+		<% if signed_in? && @job.user.id == current_user.id %>
+			<% if @job.status == "accepted" %>
 				<div class="reservebuttonsection">
 					<%= link_to "Make Payment", "/jobs/#{@job.id}/payment" %>
 				</div>
-			<% elsif (@job.user.id == current_user.id) && @job.status == "paid" %>
+			<% elsif @job.status == "paid" %>
 				<div class="reservebuttonsection">
-					
 					<%= link_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
 				</div>
-			<% elsif (@job.user.id == current_user.id) && @job.status == "pending" %>
+			<% elsif @job.status == "pending" %>
 				<div class="reservebuttonsection">
 					<%= link_to "Waiting for Acceptance", nil, disabled: true, class: "reservebutton" %>
 				</div>
