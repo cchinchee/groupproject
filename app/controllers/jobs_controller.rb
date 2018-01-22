@@ -31,8 +31,8 @@ class JobsController < ApplicationController
     def update
         @reserve_job = Job.find_by(id: params[:id])
 
-        if @reserve_job.status == "Accepted" && @reserve_job.affiliate_id != nil
-            @reserve_job.update(status: 2)
+        if @reserve_job.status == "paid" && @reserve_job.affiliate_id != nil
+            @reserve_job.update(status: 3)
         else
             @reserve_job.update(status: 1, affiliate_id: current_affiliate.id)
         end
