@@ -85,7 +85,7 @@
 		<h3 class="showpage-title">Reviews</h3>
 		<h5>Reviews from User</h5>
 		<div class="review row"></div>
-		<% @requested = @job.where(status: "2")  %>
+		<% @requested = @job.where(status: "3")  %>
 		<% @requested.each do |t| %>
 			<div class="col-md-2">
 				<%= image_tag("userprofile.jpg",class:"thumbnail-review")%>

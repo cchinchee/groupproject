@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
     before_action :show_job_params, only: [:show]
+    before_action :find_job, only: [:payment, :checkout]
 
     def index
     end
@@ -30,13 +31,36 @@ class JobsController < ApplicationController
     def update
         @reserve_job = Job.find_by(id: params[:id])
 
-        if @reserve_job.status == "Accepted" && @reserve_job.affiliate_id != nil
-            @reserve_job.update(status: 2)
+        if @reserve_job.status == "paid" && @reserve_job.affiliate_id != nil
+            @reserve_job.update(status: 3)
         else
             @reserve_job.update(status: 1, affiliate_id: current_affiliate.id)
         end
 
         redirect_to "/jobs/#{params[:id]}"
+    end
+
+    def payment
+        @client_token = Braintree::ClientToken.generate
+    end
+
+    def checkout
+        nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
+
+        result = Braintree::Transaction.sale(
+          :amount => "#{@job.price}",
+          :payment_method_nonce => 'fake-valid-nonce',
+          :options => {
+            :submit_for_settlement => true
+          }
+        )
+
+        if result.success?
+            @job.paid!
+            redirect_to :root
+        else
+            redirect_to :root
+        end         
     end
 
     def check
@@ -65,5 +89,9 @@ private
 
     def show_job_params
         @job = Job.find(params[:id])
+    end
+
+    def find_job
+        @job = Job.find_by(id: params[:id])
     end
 end

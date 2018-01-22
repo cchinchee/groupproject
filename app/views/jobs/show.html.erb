@@ -39,11 +39,11 @@
 		<h2><%= image_tag("001-restaurant.svg",class:"flaticonstyle")%></h2>
 
 		<% if affiliate_signed_in? %>
-			<% if @job.affiliate_id == current_affiliate.id && @job.status == "Accepted" %>
+			<% if @job.affiliate_id == current_affiliate.id && @job.status == "accepted" %>
 				<div class="reservebuttonsection">
 					<%= link_to "JOB ACCEPTED BY YOU", nil, disabled: true, class: "reservebutton" %>
 				</div>
-			<% elsif @job.affiliate_id != nil && @job.status == "Accepted" %>
+			<% elsif @job.affiliate_id != nil && @job.status == "accepted" %>
 				<div class="reservebuttonsection">
 					<%= link_to "ACCEPTED BY OTHER", nil, disabled: true, class: "reservebutton" %>
 				</div>
@@ -54,19 +54,23 @@
 			<% end %>
 		<% end %>
 
-		<% if signed_in? %>
-			<% if (@job.user.id == current_user.id) && @job.status == "Accepted" %>
+		<% if signed_in? && @job.user.id == current_user.id %>
+			<% if @job.status == "accepted" %>
+				<div class="reservebuttonsection">
+					<%= link_to "Make Payment", "/jobs/#{@job.id}/payment" %>
+				</div>
+			<% elsif @job.status == "paid" %>
 				<div class="reservebuttonsection">
 					<%= link_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
 				</div>
-			<% elsif (@job.user.id == current_user.id) && @job.status == "Pending" %>
+			<% elsif @job.status == "pending" %>
 				<div class="reservebuttonsection">
 					<%= link_to "Waiting for Acceptance", nil, disabled: true, class: "reservebutton" %>
 				</div>
 			<% end %>
 		<% end %>
 
-		<% if (signed_in? || affiliate_signed_in?) && @job.status == "Completed" %>
+		<% if (signed_in? || affiliate_signed_in?) && @job.status == "completed" %>
 			<div class="reservebuttonsection">
 				<%= link_to "COMPLETED", nil, disabled: true, class: "reservebutton" %>
 			</div>

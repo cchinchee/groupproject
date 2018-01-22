@@ -44,4 +44,7 @@ Rails.application.routes.draw do
 
   get "/training_courses" => "training_courses#show"
 
+  get "/jobs/:id/payment" => "jobs#payment"
+  post "/jobs/:id/payment/checkout" => "jobs#checkout"
+
 end

@@ -23,7 +23,7 @@
 
 	<div>
 		<h3 class="showpage-title">Requested Job</h3>
-		<% @requested = @job.where(status: "0") && @job.where(status: "1") %>
+		<% @requested = @job.where.not(status: "completed") %>
 		<% @requested.each do |t| %>
 		  
 		  <div class="thumbnail jobstyle">
@@ -45,7 +45,7 @@
 	</div>
 	<div>
 		<h3 class="showpage-title">Completed Job</h3>
-		<% @requested = @job.where(status: "2")  %>
+		<% @requested = @job.where(status: "completed")  %>
 		<% @requested.each do |t| %>
 		  
 		  <div class="thumbnail jobstyle">

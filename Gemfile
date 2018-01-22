@@ -52,6 +52,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Photo Upload
 gem 'carrierwave'
 gem 'fog'
+# payment gateway
+gem 'braintree'
 
 
 # Use Capistrano for deployment
