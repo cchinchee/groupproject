@@ -15,13 +15,45 @@
       <div><%= image_tag("gadgetservice", class:"servicesimage")%><h4 class="text-center">Gadget Repair</h4><h4 class="text-center">RM150 per service</h4></div>
     </div>
   
-    <div class="text-field form-group">
-        <%= form.select :category, options_for_select(category), class: "form-control col-md-6 form-text" %>
+    <!-- <div class="text-field form-group">
+        <%# form.select :category, options_for_select(category), class: "form-control col-md-6 form-text" %>
     </div>
     <div class="text-field form-group">
-       <h5> RM<%= form.text_field :price, placeholder: "Price", class: "form-text", readonly: true %></h4>
+       <h5> RM<%# form.text_field :price, placeholder: "Price", class: "form-text", readonly: true %></h4>
+    </div> -->
+    <br>
+<div class="details-container row">
+  <div class="details-item col-md-7", style="padding-left: 45px;">  
+    <div class="text-field form-group">
+        <%= form.text_field :address, placeholder: 'Address', class: "form-control"%>
+    </div>
+    <div class="row">
+        <div class="select-field form-group col-md-5" style="padding-left: 0px;">
+            <% states = [] %>
+            <% CS.states(:my).each do |x, y| states << y.to_s end %>
+            <%= form.select :state, options_for_select(states, "Johor"), class: "form-control"%>
+        </div>
+        
+        <div class="select-field form-group col-md-5", id="show-city-job", style="display: none">
+            <% city = [] %>
+            <%= form.select :city, options_for_select(city) , class: "form-control"%>
+        </div>
+    </div>    
+
+    <div class="text-field form-group">
+        <%= form.text_field :postcode, placeholder: 'Postcode', class: "form-control"%>
     </div>
 
+    <div class="text-field form-group">
+        <%= form.text_area :description, :rows => 8, style: 'width:100%;', placeholder: 'Description', class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Book", class: "btn-apply" %>
+    </div>
+  </div>
+
+  <div class="details-item col-md-3", style="padding-left: 35px;">
     <div class="text-field form-group">
         <%= form.date_field :start_date, placeholder: 'Start Date', class: "form-control"%>
     </div>
@@ -29,33 +61,8 @@
     <div class="text-field form-group">
         <%= form.time_field :start_time, placeholder: 'Start Time', class: "form-control"%>
     </div>
-
+  </div>
     
-    <div class="text-field form-group">
-        <%= form.text_field :address, placeholder: 'Address', class: "form-control"%>
-    </div>
-    
-    <div class="select-field form-group">
-        <% states = [] %>
-        <% CS.states(:my).each do |x, y| states << y.to_s end %>
-        <%= form.select :state, options_for_select(states, "Johor"), class: "form-control"%>
-    </div>
-    
-    <div class="select-field form-group", id="show-city-job", style="display: none">
-        <% city = [] %>
-        <%= form.select :city, options_for_select(city) , class: "form-control"%>
-    </div>
-
-    <div class="text-field form-group">
-        <%= form.text_field :postcode, placeholder: 'Postcode', class: "form-control"%>
-    </div>  
-    
-    <div class="text-field form-group">
-        <%= form.text_field :description, placeholder: 'Description', class: "form-control"%>
-    </div>
-
-    <div class="form-group">
-      <%= form.submit "Post a job", class: "text-field btn-submit form-control" %>
-    </div>
+</div>
     
    <% end %>
