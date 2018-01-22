@@ -7,7 +7,6 @@
 .navbar{
 	margin-bottom: 0px;
 	background-color: #FFFFFF;
-	margin-bottom: 10px;
 }
 
 #userlogostyle{
@@ -48,4 +47,8 @@
 	visibility: visible;
 	-webkit-transform: scaleX(1);
 	transform: scaleX(1);
+}
+
+.addpointercursor{
+	cursor: pointer;
 }
