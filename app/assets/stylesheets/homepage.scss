@@ -50,7 +50,6 @@
 }
 
 .thumbnail{
-	border-radius: 50%;
 	width:235.25px;
 	height: 250px;
 	border-color: #fff;
@@ -127,6 +126,11 @@
 .paginatecontainer{
 	padding-top: 0;
 	padding-bottom: 0;
+	padding-right: 0;
+}
+
+#homepagepaginatecontainer{
+	width: 500px;
 }
 
 .joinusbuttonstyle{
