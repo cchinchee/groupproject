@@ -39,6 +39,31 @@ class JobsController < ApplicationController
         redirect_to "/jobs/#{params[:id]}"
     end
 
+    def payment
+        @client_token = Braintree::ClientToken.generate
+    end
+
+    # def checkout
+    #     nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
+
+    #     result = Braintree::Transaction.sale(
+    #       :amount => "#{@reservation.total_price}",
+    #       :payment_method_nonce => 'fake-valid-nonce',
+    #       :options => {
+    #         :submit_for_settlement => true
+    #       }
+    #     )
+
+    #     if result.success?
+    #         @reservation.paid!
+
+    #         UserMailer.payment_email(current_user.name, current_user.email, @reservation.listing.listing_name).deliver
+    #         redirect_to :root, :flash => { :success => "Transaction successful!"}
+    #     else
+    #         redirect_to :root, :flash => { :error => "Transaction failed. Please try again."}
+    #     end         
+    # end
+
     def check
         case params[:chosenCategory]
         when "Cleaning Service"
