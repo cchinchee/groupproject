@@ -29,9 +29,11 @@
   </div>
 </div>
 
-<div class="joinusbutton">
+<div class="joinusbutton postajobbutton">
   <% if signed_in? %>
-    <%= button_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
+    <div>
+        <%= link_to "POST A JOB", "/jobs/new",method: :get, class:"postajobbuttonstyle" %>
+    </div>
   <% end %>
 </div>
 </div>
