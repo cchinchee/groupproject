@@ -15,7 +15,8 @@
 				<h4 class="usercontactsectionemail"><%= image_tag("002-email.png")%><%= current_user.email %></h4>
 				<h4><%= image_tag("001-home.png") %><%= current_user.address %>, <%= current_user.postcode %>, <%= current_user.city %>, <%= current_user.state %>.</h4>
 				<ul class="usercontactsectionul">
-					<li>***</br>Total Posted Job</li>
+					<% @numberofjob = @job.where(user_id: current_user.id) %>
+					<li><%= @numberofjob.count  %></br>Total Posted Job</li>
 				</ul>
 			</div>
 		</div>
@@ -36,7 +37,7 @@
 		      <% if t.status == 0 %>
 		      	<h5><%= t.status %></h5>
 		      	<%= button_to "Edit", "#" %>
-		      <% else t.status == 1 %>
+		      <% elsif t.status == 1 %>
 		      	<h5><%= t.status %> by <%= link_to "#{t.affiliate.first_name}", affiliate_path(t.affiliate_id) %></h5>
 		      <% end %>		
 		    </div>

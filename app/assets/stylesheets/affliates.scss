@@ -69,6 +69,17 @@
   transform: scaleX(1);
 }
 
-.affiliateupcomingjobsection{
-  
+#col2{
+  background-image: image-url('woodenboard.jpg');
+  background-size: cover; 
+}
+
+.affiliateupcomingjobsection h2{
+  color: white;
+}
+
+#showjobdatetime{
+  text-align: center;
+  padding-top: 5px;
+  color:#f57224;
 }
