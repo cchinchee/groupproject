@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
     before_action :show_job_params, only: [:show]
+    before_action :find_job, only: [:payment, :checkout]
 
     def index
     end
@@ -39,6 +40,29 @@ class JobsController < ApplicationController
         redirect_to "/jobs/#{params[:id]}"
     end
 
+    def payment
+        @client_token = Braintree::ClientToken.generate
+    end
+
+    def checkout
+        nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
+
+        result = Braintree::Transaction.sale(
+          :amount => "#{@job.price}",
+          :payment_method_nonce => 'fake-valid-nonce',
+          :options => {
+            :submit_for_settlement => true
+          }
+        )
+
+        if result.success?
+            @job.paid!
+            redirect_to :root
+        else
+            redirect_to :root
+        end         
+    end
+
     def check
         case params[:chosenCategory]
         when "Cleaning Service"
@@ -65,5 +89,9 @@ private
 
     def show_job_params
         @job = Job.find(params[:id])
+    end
+
+    def find_job
+        @job = Job.find_by(id: params[:id])
     end
 end
