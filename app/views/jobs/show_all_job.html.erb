@@ -1,13 +1,14 @@
 <%= render partial: "/layouts/navbar" %>
 
+<div class="row showalljobrowcontainer">
 <div class='container' id="homepagecontainer">
-  <h1 id="latestjobheader">AVAILABLE JOB</h1>
+  <h1 id="latestshowalljobheader">AVAILABLE JOB</h1>
   <br>
   <% @job.each do |t| %>
       <%= link_to job_path(t.id) do %>
-      <div class="thumbnail jobstyle">
+      <div class="thumbnail jobstyle showalljobthumbnail">
         <div class="thumbnailhoverclass">
-        <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+          <%= image_tag("cooking.jpg", class:"thumnail-image")%>
         <div class="overlay">
           <div class="overlaytext"><%= t.category %></div>
         </div>
@@ -22,7 +23,9 @@
       <% end %>
     <% end %>
   <div id='paginate'>
-    <div class='container paginatecontainer'><%= paginate @job ,outer_window: 3%></div>
+    <div class='container paginatecontainer' id="showalljobpaginatecontainer">
+      <%= paginate @job,outer_window: 3%>  
+    </div>
   </div>
 </div>
 
@@ -30,6 +33,7 @@
   <% if signed_in? %>
     <%= button_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
   <% end %>
+</div>
 </div>
 
 <%= render partial: "/layouts/footer" %>
