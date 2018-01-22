@@ -7,9 +7,15 @@ document.addEventListener("turbolinks:load", function(){
 		startDate = document.getElementById("job_start_date")
 		startTime = document.getElementById("job_start_time")
 
-		flatpickr(startDate, {altInput:true, minDate: new Date().fp_incr(1)})
-		flatpickr(startTime, {altInput: true, enableTime: true, noCalendar: true, dateFormat: "H:i", minDate: "09:00",
+		flatpickr(startDate, {altInput:true, minDate: new Date().fp_incr(1), inline: true})
+		flatpickr(startTime, {altInput: true, enableTime: true, inline:true, noCalendar: true, dateFormat: "H:i", minDate: "09:00",
     maxDate: "18:00"})
+
+		targetCalendar = document.getElementsByClassName("flatpickr-input")[1]
+		targetTime = document.getElementsByClassName("flatpickr-input")[3]
+
+		targetCalendar.style.display = "none"
+		targetTime.style.display = "none"
 	}
 
 	if (document.querySelector("#job_category")){
