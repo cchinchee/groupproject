@@ -1,29 +1,56 @@
-<h3>Payment Gateway</h3>
+<%= render partial: "/layouts/navbar" %>
+<div class="container">
+	<h3>Payment Gateway</h3>
+	<br>
+  <div class="payment-details">	
 
-<p>Payment for <%= @reservation.listing.listing_name %></p>
+	<h4>Service Summary</h4>
+	<div class="row">
+		<p class="col-md-2">Payment for</p><p class="col-md-2"><%= @job.category %></p>
+	</div>
+	<div class="row">
+		<p class="col-md-2">Owner Name</p><p class="col-md-2"><%= @job.name %></p>
+	</div>
+	<div class="row">
+		<p class="col-md-2">Service Date</p><p class="col-md-2"><%= @job.start_date.strftime("%d %b %Y") %></p>
+	</div>
+	<div class="row">
+		<p class="col-md-2">Service Time</p><p class="col-md-2"><%= @job.start_time.strftime("%l.%M %P") %></p>
+	</div>
+	<div class="row">
+		<p class="col-md-2">Total Price</p><p class="col-md-2">RM <%= @job.price %></p>
+	</div>	
+  </div>		
 
-<div class="payment-container">  
+	<div class="payment-container">  
 
-	<%= form_for :checkout_form, url: "/reservations/#{@reservation.id}/payment/checkout", html: { id: "cardForm"} do |form| %>
+		<%= form_for :checkout_form, url: "/jobs/#{@job.id}/payment/checkout", html: { id: "cardForm"} do |form| %>
 
-		<%= form.label :card_number, "Credit Card Number", html: {class: "hosted-fields--label"} %>
-		<div id="card-number" class="hosted-field"></div>
+			<%= form.label :card_number, "Credit Card Number", html: {class: "hosted-fields--label"} %>
+			<div id="card-number" class="hosted-field"></div>
 
-		<%= form.label :expiration_date, "Expiration Date", html: {class: "hosted-fields--label"}  %>
-		<div id="expiration-date" class="hosted-field"></div>
+			<%= form.label :expiration_date, "Expiration Date", html: {class: "hosted-fields--label"}  %>
+			<div id="expiration-date" class="hosted-field"></div>
 
-		<%= form.label :cvv, "CVV", html: {class: "hosted-fields--label"} %>
-		<div id="cvv" class="hosted-field"></div>
+			<%= form.label :cvv, "CVV", html: {class: "hosted-fields--label"} %>
+			<div id="cvv" class="hosted-field"></div>
 
-		<%= form.hidden_field "payment_method_nonce" %>
+			<%= form.hidden_field "payment_method_nonce" %>
 
-		<div class="button-container">
-			<%= form.submit "Purchase", disabled: true, class: "btn btn-primary", id: "submit-payment-btn" %>
-		</div>
-	<% end  %>		
-</div>
-	
+			<div class="button-container">
+				<%= form.submit "Purchase", disabled: true, class: "btn btn-primary", id: "submit-payment-btn" %>
+			</div>
+		<% end  %>		
+	</div>
+</div>	
 
+<%= render partial: "/layouts/footer" %>
+
+<!-- Load the Client component. -->
+<script src="https://js.braintreegateway.com/web/3.6.3/js/client.min.js"></script>
+
+<!-- Load the Hosted Fields component. -->
+<script src="https://js.braintreegateway.com/web/3.6.3/js/hosted-fields.min.js"></script>
 <script>
 	var form = document.querySelector('#cardForm');
 	var submit = document.querySelector("#submit-payment-btn");
