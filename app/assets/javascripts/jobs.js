@@ -59,12 +59,26 @@ document.addEventListener("turbolinks:load", function(){
 			let priceInput = document.getElementById("job_price")
 			let categoryInput = document.getElementById("job_category")
 			
-
 			container.addEventListener("click", function (event){
-
+				fired = true
 				let target = event.target
 				let currentValue = target.value
 				let finalPrice = ""
+				let array_of_images = document.getElementsByClassName("jobimage")
+				let array_of_descriptions = document.getElementsByClassName("description-price")
+
+				let position = 0
+				for (i = 0; i < array_of_images.length; i++){
+					if (array_of_images[i] == event.target){
+						position = i
+						// array_of_descriptions[position].style.setProperty("visibility", "visible", "important")
+						array_of_descriptions[position].classList.remove("hide-effect");
+					}
+					else {
+						array_of_descriptions[i].style.visibility = "hidden"
+					}
+				}
+
 				if (target.classList.contains("jobimage")){
 					event.preventDefault();
 					if (currentValue == "Catering"){
@@ -74,25 +88,21 @@ document.addEventListener("turbolinks:load", function(){
 					else if (currentValue == "Cleaning"){
 						finalPrice = 80
 						selectedCategory = "Cleaning"
-
 					}				
 
 					else if (currentValue == "Mover"){
 						finalPrice = 70
 						selectedCategory = "Mover"
-
 					}
 
 					else if (currentValue == "Plumbing"){
 						finalPrice = 60
 						selectedCategory = "Plumbing"
-
 					}
 
 					else if (currentValue == "Gadget Repair"){
 						finalPrice = 150
 						selectedCategory = "Gadget Repair"
-
 					}
 
 					priceInput.value = finalPrice
@@ -105,6 +115,21 @@ document.addEventListener("turbolinks:load", function(){
 				}
 
 			})
+				container.addEventListener("mouseover", function(event) {
+					array_of_images = document.getElementsByClassName("jobimage")
+					array_of_descriptions = document.getElementsByClassName("description-price")
+					let position = 0
+					for (i = 0; i < array_of_images.length; i++){
+						if (array_of_images[i] == event.target){
+							position = i
+							array_of_descriptions[position].style.visibility = "visible"
+						}
+						else {
+							array_of_descriptions[i].style.visibility = "hidden"
+						}
+					}
+
+				})
 	}
 
 });
