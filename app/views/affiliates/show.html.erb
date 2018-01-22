@@ -1,15 +1,17 @@
 <%= render partial: "/layouts/navbar" %>
 
-<div class="container">
+<div class="container ">
 	<div class="row">
 		<div class="col-md-4">
 			<div><%= image_tag("userprofile.jpg",class:"thumbnail")%></div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8 portfolio">
 			<div class="thumnail">
 				<div class="showpage-header row">
 					<h4 class="col-md-6 text-center">1<%= @job.count %> <br>	Completed job </h4>
+					<% if affiliate_signed_in? %>
 					<h4 class="col-md-6 text-center">RM2850 <br> Pension Fund (5 Years) </h4>
+					<% end  %>
 				</div>
 				<h1 class="showpage-name"><%= @affiliate.first_name %> <%= @affiliate.last_name %></h1>
 				<h4 class="showpage-verify">Verified info</h4>
@@ -73,7 +75,7 @@
 		<% @requested.each do |t| %>
 			<div class="col-md-2">
 				<%= image_tag("userprofile.jpg",class:"thumbnail-review")%>
-				<p class="text-center">Kelvin</p>
+				<p style="padding-left: 30px;">Kelvin</p>
 			</div>
 			<div class="col-md-8">
 				<p>Provided a very good service, he is a hard working person.</p>
