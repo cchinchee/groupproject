@@ -40,24 +40,36 @@
 
 		<% if affiliate_signed_in? %>
 			<% if @job.affiliate_id == current_affiliate.id && @job.status == "Accepted" %>
-				<%= button_to "YOU HAVE ACCEPTED THIS JOB", nil, disabled: true %>
+				<div class="reservebuttonsection">
+					<%= link_to "JOB ACCEPTED BY YOU", nil, disabled: true, class: "reservebutton" %>
+				</div>
 			<% elsif @job.affiliate_id != nil && @job.status == "Accepted" %>
-				<%= button_to "ACCEPTED", nil, disabled: true, class: "reservebutton" %>
+				<div class="reservebuttonsection">
+					<%= link_to "ACCEPTED BY OTHER", nil, disabled: true, class: "reservebutton" %>
+				</div>
 			<% elsif @job.affiliate_id == nil %>
-				<%= button_to "Reserve", job_path, method: :patch, class:"reservebutton" %>
+				<div class="reservebuttonsection">
+					<%= link_to "RESERVE", job_path, method: :patch, class:"reservebutton" %>
+				</div>
 			<% end %>
 		<% end %>
 
 		<% if signed_in? %>
 			<% if (@job.user.id == current_user.id) && @job.status == "Accepted" %>
-				<%= button_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
+				<div class="reservebuttonsection">
+					<%= link_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
+				</div>
 			<% elsif (@job.user.id == current_user.id) && @job.status == "Pending" %>
-				<%= button_to "Waiting for Acceptance", nil, disabled: true, class: "reservebutton" %>
+				<div class="reservebuttonsection">
+					<%= link_to "Waiting for Acceptance", nil, disabled: true, class: "reservebutton" %>
+				</div>
 			<% end %>
 		<% end %>
 
 		<% if (signed_in? || affiliate_signed_in?) && @job.status == "Completed" %>
-			<%= button_to "COMPLETED", nil, disabled: true, class: "reservebutton" %>
+			<div class="reservebuttonsection">
+				<%= link_to "COMPLETED", nil, disabled: true, class: "reservebutton" %>
+			</div>
 		<% end %>
 	</div>
 </div>
