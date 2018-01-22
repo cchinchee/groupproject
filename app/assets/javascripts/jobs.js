@@ -18,29 +18,6 @@ document.addEventListener("turbolinks:load", function(){
 		targetTime.style.display = "none"
 	}
 
-	if (document.querySelector("#job_category")){
-		const category = document.querySelector("#job_category")
-		const priceInput = document.querySelector("#job_price")
-		const token = document.getElementsByName("csrf-token")[0].content
-
-		category.addEventListener("change", function(event){
-		
-			let request = new XMLHttpRequest();
-			request.onreadystatechange = function(response){
-				if (request.readyState === XMLHttpRequest.DONE && request.status === 200){
-					finalPrice = JSON.parse(request.responseText).chosenPrice
-					
-					priceInput.value = finalPrice
-				}
-			}
-			request.open("POST", "/jobs/check", true)
-			request.setRequestHeader("X-CSRF-Token", token )
-			request.setRequestHeader("Content-type", "application/json; charset=utf-8");
-			request.send(JSON.stringify({chosenCategory: event.target.value}))
-
-		})
-	}
-
 	if (document.querySelector("#job_state")){
 
 		const selectedState = document.querySelector("#job_state")
@@ -74,6 +51,60 @@ document.addEventListener("turbolinks:load", function(){
 			request.setRequestHeader("Content-type", "application/json; charset=utf-8");
 			request.send(JSON.stringify({chosenState: selectedState.value}))
 		});
+	}
+
+	if (document.querySelector(".choose-service")){
+			let currentBox = document.querySelector(".choose-service .jobimage.chooseThis")
+			let container = document.querySelector(".choose-service")
+			let priceInput = document.getElementById("job_price")
+			let categoryInput = document.getElementById("job_category")
+			
+
+			container.addEventListener("click", function (event){
+
+				let target = event.target
+				let currentValue = target.value
+				let finalPrice = ""
+				if (target.classList.contains("jobimage")){
+					event.preventDefault();
+					if (currentValue == "Catering"){
+						finalPrice = 100
+						selectedCategory = "Catering"
+					}	
+					else if (currentValue == "Cleaning"){
+						finalPrice = 80
+						selectedCategory = "Cleaning"
+
+					}				
+
+					else if (currentValue == "Mover"){
+						finalPrice = 70
+						selectedCategory = "Mover"
+
+					}
+
+					else if (currentValue == "Plumbing"){
+						finalPrice = 60
+						selectedCategory = "Plumbing"
+
+					}
+
+					else if (currentValue == "Gadget Repair"){
+						finalPrice = 150
+						selectedCategory = "Gadget Repair"
+
+					}
+
+					priceInput.value = finalPrice
+					categoryInput.value = selectedCategory
+
+					currentBox.classList.remove("chooseThis")
+					currentBox = target
+					currentValue = target.value
+					currentBox.classList.add("chooseThis")
+				}
+
+			})
 	}
 
 });

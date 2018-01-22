@@ -95,3 +95,24 @@
 .reservebutton:hover{
 	opacity: 1;
 }
+
+.choose-service {
+	display: flex;
+	justify-content: space-around;
+	color: #484848;
+	font-family: 'Poppins', sans-serif;
+	padding-top: 20px;
+}
+
+.chooseThis {	
+	border: 4px solid orangered;
+}
+
+.service-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+.description-price {
+	display: inline-block;
+}
