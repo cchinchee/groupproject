@@ -45,7 +45,7 @@
 			      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
 			      <h5><%= t.category %></h5>
 			      <h5>RM <%= t.price %></h5>
-			      <h5><%= t.status %> by NAME</h5>
+			      <h5><%= t.status %> by <%= link_to "t.affiliate.first_name" %></h5>
 			    </div>
 			  </div>
 			  <% end %>
