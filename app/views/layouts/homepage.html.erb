@@ -50,8 +50,10 @@
 		<h1 class="sectionheader">A GUIDE TO START</h1>
 	</div>
 	<div class="button">
-		<%= button_to "CLICK FOR MORE", "/", class:"buttonstyle" %>
-	</div>
+    <div>
+      <%= link_to "CLICK FOR MORE", "/", class:"buttonstyle" %>	
+    </div>
+  </div>
 </div>
 
 <div id="service_container">
@@ -121,20 +123,20 @@
 <div class="joinusbutton">
   <% if !signed_in? && !affiliate_signed_in? %>
       <div>
-        <%= button_to "JOIN US", "/", method: :get, class:"joinusbuttonstyle" %>        
+        <%= link_to "JOIN US", "/", method: :get, class:"joinusbuttonstyle" %>        
       </div>
   <% end %>
   <% if signed_in? %>
       <div>
-        <%= button_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
+        <%= link_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
       </div>
       <div>
-        <%= button_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
+        <%= link_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
       </div>
   <% end %>
   <% if affiliate_signed_in? %>
       <div>
-        <%= button_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
+        <%= link_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
       </div>
   <% end %>
 </div>
