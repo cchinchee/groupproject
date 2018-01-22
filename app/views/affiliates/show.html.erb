@@ -22,34 +22,47 @@
 		</div>
 	</div>
 
-	<div>
-		<h3 class="">Completed Training Course</h3>
-		<ul class="">
-	    	<li class="">Professional Cleaning Services</li>
-	    	<li class="">Cooking Class - Western food</li>
-	    	<% if affiliate_signed_in? %>
-	    		<li class=""><%= button_to "Training Portal", "/training_courses", method: :get %></li>
-			<% end  %>
-	  	</ul>
+</br>
+
+<div class="row" id="row2">
+	<div class="col-md-3">
+		<div class="affiliatecoursesection">
+			<h3>Completed Training Course</h3>
+			<ul class="affiliatecoursesectionul">
+		    	<li>1) Professional Cleaning Services</li>
+		    	<li>2) Cooking Class - Western food</li>
+		    	<li>3) Certified Plumbing</li>
+		    	<li>4) Electronic Gadget Repair</li>
+		    	<li>5) Certified Mover</li>
+		    	</br>
+		    	<% if affiliate_signed_in? %>
+		    		<li class="affiliatecoursesectionbuttonli">LINK TO : <%= link_to "Training Portal", "/training_courses", class:"affiliatecoursesectionbutton"%></li>
+				<% end  %>
+		  	</ul>
+	  	</div>
 	</div>
 
-	<div>
+	<div class="col-md-9">
 		<% if affiliate_signed_in? %>
-			<h3 class="showpage-title">Upcoming Job</h3>
-			<% @requested = @job.where(status: "1") %>
-			<% @requested.each do |t| %>
-			  <%= link_to job_path(t.id) do %>
-			  <div class="thumbnail jobstyle">
-			    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-			    <div class="caption">
-			      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
-			      <h5><%= t.category %></h5>
-			      <h5>RM <%= t.price %></h5>
-			      <h5><%= t.status %> by <%= link_to "t.affiliate.first_name" %></h5>
-			    </div>
-			  </div>
-			  <% end %>
-			<% end %>
+			<div class="affiliateupcomingjobsection">
+				<h3>Upcoming Job</h3>
+				<div>
+					<% @requested = @job.where(status: "1") %>
+					<% @requested.each do |t| %>
+					  <%= link_to job_path(t.id) do %>
+					  <div class="thumbnail jobstyle">
+					    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+					    <div class="caption">
+					      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
+					      <h5><%= t.category %></h5>
+					      <h5>RM <%= t.price %></h5>
+					      <h5><%= t.status %> by <%= link_to "t.affiliate.first_name" %></h5>
+					    </div>
+					  </div>
+					  <% end %>
+					<% end %>
+				</div>
+			</div>
 		<% else %>
 			<h3 class="showpage-title">Completed Job</h3>
 			<% @requested = @job.where(status: "2") %>
@@ -65,8 +78,9 @@
 			  <% end %>
 			<% end %>
 		<% end %>
-
 	</div>
+</div>
+
 	<div>
 		<h3 class="showpage-title">Reviews</h3>
 		<h5>Reviews from User</h5>
