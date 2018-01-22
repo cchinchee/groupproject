@@ -6,6 +6,7 @@ class JobsController < ApplicationController
     
     def new
         @job = Job.all
+        
     end
 
     def show

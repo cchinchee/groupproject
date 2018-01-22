@@ -1,3 +1,10 @@
-<%= render 'form'%>
+<%= render partial: "/layouts/navbar" %>
+
+
+<div class="container">
+	<h2>Request Job HERE</h2>
+	<%= render 'form'%>
 
 <%= link_to 'Back', root_path%>
+</div>
+<%= render partial: "/layouts/footer" %>
