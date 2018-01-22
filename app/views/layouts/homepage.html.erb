@@ -12,11 +12,25 @@
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
   </ol>
  
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
+      <%= image_tag ("picture5.jpg") %>
+      <div class="carousel-caption">
+        <h1 class="sectionword">A · PRIVATE · SCHEME · COMPANY</h1>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag ("picture6.jpg") %>
+      <div class="carousel-caption">
+        <h1 class="sectionword" id="informalsectorword">EXCLUSIVELY · FOR · INFORMAL · SECTOR </h1>
+      </div>
+    </div>
+    <div class="item">
       <%= image_tag ("picture1.jpg") %>
       <div class="carousel-caption">
       	<h1 class="sectionword">PARTNERSHIP · SECURITY </h1>
@@ -50,8 +64,10 @@
 		<h1 class="sectionheader">A GUIDE TO START</h1>
 	</div>
 	<div class="button">
-		<%= button_to "CLICK FOR MORE", "/", class:"buttonstyle" %>
-	</div>
+    <div>
+      <%= link_to "CLICK FOR MORE", "/", class:"buttonstyle" %>	
+    </div>
+  </div>
 </div>
 
 <div id="service_container">
@@ -66,7 +82,7 @@
     <div><%= image_tag("gadgetservice", class:"servicesimage")%><h4>Gadget Repair</h4></div>
   </div>
   <div>
-    <h4>and more...</h4>
+    <h4>something new is coming ...</h4>
   </div>  
 </div>
 
@@ -121,20 +137,20 @@
 <div class="joinusbutton">
   <% if !signed_in? && !affiliate_signed_in? %>
       <div>
-        <%= button_to "JOIN US", "/", method: :get, class:"joinusbuttonstyle" %>        
+        <%= link_to "JOIN US", "/", method: :get, class:"joinusbuttonstyle" %>        
       </div>
   <% end %>
   <% if signed_in? %>
       <div>
-        <%= button_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
+        <%= link_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
       </div>
       <div>
-        <%= button_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
+        <%= link_to "POST A JOB", "/jobs/new",method: :get, class:"joinusbuttonstyle" %>
       </div>
   <% end %>
   <% if affiliate_signed_in? %>
       <div>
-        <%= button_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
+        <%= link_to "VIEW MORE", "/jobs/show_all_job",method: :get, class:"joinusbuttonstyle" %>
       </div>
   <% end %>
 </div>

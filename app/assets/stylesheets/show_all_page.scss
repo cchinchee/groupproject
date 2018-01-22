@@ -27,3 +27,51 @@
 	color: #FFFFFF;
 	text-align: center;
 }
+
+.postajobbutton{
+	background-color: #FFFFFF;
+	width: 200px;
+	height: 10px;
+	border-radius: 25px;
+	padding-top: 12px;
+	margin-bottom: 10px;
+}
+
+.postajobbuttonstyle{
+	position: relative;
+	background-color: none;
+	color: #000000;
+	padding: 10px;
+	border-radius: 25px; 
+	font-weight: 900;
+	font-size: 1.3em;
+	margin-bottom: 10px;
+
+}
+
+.postajobbuttonstyle:hover{
+	color: #000000;
+	text-decoration: none;
+	font-weight: 900;
+}
+
+.postajobbuttonstyle:before{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #1D8BDD;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.postajobbuttonstyle:hover:before{
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}

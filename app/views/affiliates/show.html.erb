@@ -1,15 +1,17 @@
 <%= render partial: "/layouts/navbar" %>
 
-<div class="container">
+<div class="container ">
 	<div class="row">
 		<div class="col-md-4">
 			<div><%= image_tag("userprofile.jpg",class:"thumbnail")%></div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8 portfolio">
 			<div class="thumnail">
 				<div class="showpage-header row">
 					<h4 class="col-md-6 text-center">1<%= @job.count %> <br>	Completed job </h4>
+					<% if affiliate_signed_in? %>
 					<h4 class="col-md-6 text-center">RM2850 <br> Pension Fund (5 Years) </h4>
+					<% end  %>
 				</div>
 				<h1 class="showpage-name"><%= @affiliate.first_name %> <%= @affiliate.last_name %></h1>
 				<h4 class="showpage-verify">Verified info</h4>
@@ -43,7 +45,7 @@
 			      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
 			      <h5><%= t.category %></h5>
 			      <h5>RM <%= t.price %></h5>
-			      <h5><%= t.status %> by NAME</h5>
+			      <h5><%= t.status %> by <%= link_to "t.affiliate.first_name" %></h5>
 			    </div>
 			  </div>
 			  <% end %>
@@ -69,11 +71,11 @@
 		<h3 class="showpage-title">Reviews</h3>
 		<h5>Reviews from User</h5>
 		<div class="review row"></div>
-		<% @requested = @job.where(status: "2")  %>
+		<% @requested = @job.where(status: "3")  %>
 		<% @requested.each do |t| %>
 			<div class="col-md-2">
 				<%= image_tag("userprofile.jpg",class:"thumbnail-review")%>
-				<p class="text-center">Kelvin</p>
+				<p style="padding-left: 30px;">Kelvin</p>
 			</div>
 			<div class="col-md-8">
 				<p>Provided a very good service, he is a hard working person.</p>
