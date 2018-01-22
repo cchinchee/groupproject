@@ -21,10 +21,11 @@
 		<h3 class="showpage-title">Requested Job</h3>
 		<% @requested = @job.where(status: "0") && @job.where(status: "1") %>
 		<% @requested.each do |t| %>
-		  <%= link_to job_path(t.id) do %>
+		  
 		  <div class="thumbnail jobstyle">
 		    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
 		    <div class="caption">
+		      <h5>Booking Number <%= link_to "272#{t.id}", job_path(t.id) %></h5>	
 		      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
 		      <h5><%= t.category %></h5>
 		      <h5>RM <%= t.price %></h5>
@@ -32,11 +33,10 @@
 		      	<h5><%= t.status %></h5>
 		      	<%= button_to "Edit", "#" %>
 		      <% else t.status == 1 %>
-		      	<h5><%= t.status %> by NAME</h5>
+		      	<h5><%= t.status %> by <%= link_to "#{t.affiliate.first_name}", affiliate_path(t.affiliate_id) %></h5>
 		      <% end %>		
 		    </div>
 		  </div>
-		  <% end %>
 		<% end %>
 	</div>
 	<div>
