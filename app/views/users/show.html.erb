@@ -1,22 +1,26 @@
 <%= render partial: "/layouts/navbar" %>
 
-<div class="container">
 	<div class="row">
-		<div class="col-md-4">
-			<div><%= image_tag("userprofile.jpg",class:"thumbnail")%></div>
+		<div class="col-md-6">
+			<div class="userinfosection">
+				<div><%= image_tag("userprofile.jpg",class:"userprofilepicture")%></div>
+				<div class="userprofileinfopart">
+					<h1><%= current_user.first_name.upcase %> <%= current_user.last_name.upcase %></h1>
+					<h6>I am a passionate 26 years old male who are keen to contribute back to society.</h6>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-8">
-			<div class="thumnail">
-			
-				<h1 class="showpage-name"><%= current_user.first_name %> <%= current_user.last_name %></h1>
-				<h4><%= current_user.email %></h4>
-				<h4><%= current_user.address %>, <%= current_user.postcode %>, <%= current_user.city %>, <%= current_user.state %>.</h4>
-				<h2>About Me!</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-			</div>	
+		<div class="col-md-6">
+			<div class="usercontactsection">
+				<h4 class="usercontactsectionemail"><%= image_tag("002-email.png")%><%= current_user.email %></h4>
+				<h4><%= image_tag("001-home.png") %><%= current_user.address %>, <%= current_user.postcode %>, <%= current_user.city %>, <%= current_user.state %>.</h4>
+				<ul class="usercontactsectionul">
+					<li>***</br>Total Posted Job</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+
 	<div>
 		<h3 class="showpage-title">Requested Job</h3>
 		<% @requested = @job.where(status: "0") && @job.where(status: "1") %>
@@ -58,7 +62,5 @@
 		
 		<% end %>
 	</div>
-</div>
-
 
 <%= render partial: "/layouts/footer" %>

@@ -1,38 +1,38 @@
 <%= render partial: "/layouts/navbar" %>
 
-<div class="container ">
-	<div class="row">
-		<div class="col-md-4">
-			<div><%= image_tag("userprofile.jpg",class:"thumbnail")%></div>
-		</div>
-		<div class="col-md-8 portfolio">
-			<div class="thumnail">
-				<div class="showpage-header row">
-					<h4 class="col-md-6 text-center">1<%= @job.count %> <br>	Completed job </h4>
-					<% if affiliate_signed_in? %>
-					<h4 class="col-md-6 text-center">RM2850 <br> Pension Fund (5 Years) </h4>
-					<% end  %>
+<div class="row">
+		<div class="col-md-6">
+			<div class="userinfosection">
+				<div><%= image_tag("userprofile.jpg",class:"userprofilepicture")%></div>
+				<div class="userprofileinfopart">
+					<h1><%= current_affiliate.first_name.upcase %> <%= current_affiliate.last_name.upcase %></h1>
+					<h6>I am a passionate 26 years old male who are keen to contribute back to society.</h6>
 				</div>
-				<h1 class="showpage-name"><%= @affiliate.first_name %> <%= @affiliate.last_name %></h1>
-				<h4 class="showpage-verify">Verified info</h4>
-				<h4><i class="fa fa-check" aria-hidden="true"></i>   <%= @affiliate.email %></h4>
-				<h4><i class="fa fa-check" aria-hidden="true"></i>   <%= @affiliate.address %>, <%= @affiliate.postcode %>, <%= @affiliate.city %>, <%= @affiliate.state %>.</h4>
-				<h2>About Me!</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-			</div>	
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="usercontactsection">
+				<h4 class="usercontactsectionemail"><%= image_tag("002-email.png")%><%= current_affiliate.email %></h4>
+				<h4><%= image_tag("001-home.png") %><%= current_affiliate.address %>, <%= current_affiliate.postcode %>, <%= current_affiliate.city %>, <%= current_affiliate.state %>.</h4>
+				<ul class="usercontactsectionul">
+					<li><h4><%= @job.count %></br>Completed Job</h4></li>
+					<li><h4>RM 00000</br>Saving</h4></li>
+				</ul>
+			</div>
 		</div>
 	</div>
+
 	<div>
-		<h3 class="showpage-title">Completed Training Course</h3>
-		<ul class="list-group">
-	    <li class="list-group-item">Professional Cleaning Services</li>
-	    <li class="list-group-item">Cooking Class - Western food</li>
-	    <% if affiliate_signed_in? %>
-	    	<li class="list-group-item"><%= button_to "Training Portal", "/training_courses", method: :get %></li>
+		<h3 class="">Completed Training Course</h3>
+		<ul class="">
+	    	<li class="">Professional Cleaning Services</li>
+	    	<li class="">Cooking Class - Western food</li>
+	    	<% if affiliate_signed_in? %>
+	    		<li class=""><%= button_to "Training Portal", "/training_courses", method: :get %></li>
 			<% end  %>
-	  </ul>
+	  	</ul>
 	</div>
+
 	<div>
 		<% if affiliate_signed_in? %>
 			<h3 class="showpage-title">Upcoming Job</h3>
@@ -89,7 +89,6 @@
 		
 		<% end %>
 	</div>
-</div>
 
 
 <%= render partial: "/layouts/footer" %>
