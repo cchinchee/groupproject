@@ -8,7 +8,24 @@
       <%= link_to job_path(t.id) do %>
       <div class="thumbnail jobstyle showalljobthumbnail">
         <div class="thumbnailhoverclass">
-          <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+
+        <!-- condition starts here -->
+        <% case @job.status %>
+          <% when "Cleaning" %>
+            <% showPic = "cleaningservice.jpg"  %>
+          <% when "Catering" %>
+            <% showPic = "catering.jpg"  %>
+          <% when "Mover" %>
+            <% showPic = "mover.jpg" %>
+          <% when "Plumbing" %>
+            <% showPic = "plumbing.png" %>
+          <% when "Gadge Repair" %>
+            <% showPic = "gadgetservice.jpg" %>
+        <% end %>        
+
+        <!-- condition ends here -->
+
+          <%= image_tag(showPic, class:"thumnail-image")%>
         <div class="overlay">
           <div class="overlaytext"><%= t.category %></div>
         </div>
