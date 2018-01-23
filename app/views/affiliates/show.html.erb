@@ -23,7 +23,7 @@
 					<li><h5><%= @job.count %></br>Completed Job</h5></li>
 					<% if affiliate_signed_in? %>
 					<li><h5>RM <%= @fee %></br>Profits (87%)</h5></li>
-					<li><a href="/statement"><h5>RM <%= @pension %></br>Pension Fund (8%)</h5></li></a>
+					<li><a class="tostatementlink" href="/statement"><h5>RM <%= @pension %></br>Pension Fund (8%)</h5></li></a>
 					<% end %>
 				</ul>
 			</div>
