@@ -13,6 +13,22 @@ class AffiliatesController < ApplicationController
 	def show
 		@affiliate = Affiliate.find_by(id: params[:id])
 		@job = Job.where(affiliate_id: params[:id])
+		@upcomingjob = @job.where(status: 1).order(updated_at: :desc).page(params[:page]).per(4)
+		@completedjob = @job.where(status: 2).order(updated_at: :desc).page(params[:page]).per(4)
+		@review = @job.where(status:3)
+		@pension = @job.where(status:3)
+		fee = 0
+		@review.each do |t|
+			fee += (t.price) *0.87
+		end
+		@fee = fee
+
+		pension = 0
+		@pension.each do |t|
+			pension += (t.price) *0.08
+		end
+		@pension = pension
+
 	end
 
 

@@ -1,12 +1,17 @@
 <%= render partial: "/layouts/navbar" %>
 
-	<div class="row">
+<div class="row">
 		<div class="col-md-6">
 			<div class="userinfosection">
 				<div><%= image_tag("userprofile.jpg",class:"userprofilepicture")%></div>
 				<div class="userprofileinfopart">
 					<h1><%= current_user.first_name.upcase %> <%= current_user.last_name.upcase %></h1>
-					<h6>I am a passionate 26 years old male who are keen to contribute back to society.</h6>
+					<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
 				</div>
 			</div>
 		</div>
@@ -15,53 +20,86 @@
 				<h4 class="usercontactsectionemail"><%= image_tag("002-email.png")%><%= current_user.email %></h4>
 				<h4><%= image_tag("001-home.png") %><%= current_user.address %>, <%= current_user.postcode %>, <%= current_user.city %>, <%= current_user.state %>.</h4>
 				<ul class="usercontactsectionul">
-					<% @numberofjob = @job.where(user_id: current_user.id) %>
-					<li><%= @numberofjob.count  %></br>Total Posted Job</li>
+					<li><h5><%= @job.count %></br>Requested Job</h5></li>
+					<li><h5><%= @completedjob.count %></br>Completed Job</h5></li>
 				</ul>
 			</div>
 		</div>
+</div>
+
+</br>
+
+<div class="row" id="row2">
+	<div class="col-md-3">
+		<div class="affiliatecoursesection">
+			<h3>Interested More In</h3>
+			<ul class="affiliatecoursesectionul">
+		    	<li>1) Cleaning House</li>
+		    	<li>2) Cooking</li>
+		    	<li>3) Gardening</li>
+		    	</br>
+		    	<% if affiliate_signed_in? %>
+		    		<li class="affiliatecoursesectionbuttonli">LINK TO : <%= link_to "Training Portal", "/training_courses", class:"affiliatecoursesectionbutton"%></li>
+				<% end  %>
+		  	</ul>
+	  	</div>
 	</div>
 
-	<div>
-		<h3 class="showpage-title">Requested Job</h3>
-		<% @requested = @job.where.not(status: "completed") %>
-		<% @requested.each do |t| %>
-		  
-		  <div class="thumbnail jobstyle">
-		    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-		    <div class="caption">
-		      <h5>Booking Number <%= link_to "272#{t.id}", job_path(t.id) %></h5>	
-		      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
-		      <h5><%= t.category %></h5>
-		      <h5>RM <%= t.price %></h5>
-		      <% if t.status == 0 %>
-		      	<h5><%= t.status %></h5>
-		      	<%= button_to "Edit", "#" %>
-		      <% elsif t.status == 1 %>
-		      	<h5><%= t.status %> by <%= link_to "#{t.affiliate.first_name}", affiliate_path(t.affiliate_id) %></h5>
-		      <% end %>		
-		    </div>
-		  </div>
-		<% end %>
-	</div>
-	<div>
-		<h3 class="showpage-title">Completed Job</h3>
-		<% @requested = @job.where(status: "completed")  %>
-		<% @requested.each do |t| %>
-		  
-		  <div class="thumbnail jobstyle">
-		    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-		    <div class="caption">
-		      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
-		      <h5><%= t.category %></h5>
+	<div class="col-md-9" id="col2">
+		<% if signed_in? %>
+			<div class="affiliateupcomingjobsection">
+				<h2>Requested Job</h2>
+					<% @job.each do |t| %>
+					  <%= link_to job_path(t.id) do %>
+				      <div class="thumbnail jobstyle showalljobthumbnail">
+				        <div class="thumbnailhoverclass">
+				          <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+				        <div class="overlay">
+				          <div class="overlaytext"><%= t.category %></div>
+				        </div>
+				        </div>
+				        <h5 id="showjobdatetime"><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P")%></h5>
+				        <div class="caption">
+				          <div class="captionPriceCategory">
+				            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+				          </div>
+				        </div>
+				      </div>
+				      <% end %>
+				    <% end %>
+				    
+			</div>
 
-		      <h5>RM <%= t.price %></h5>
-		      <%= button_to "Review", "#" %>
-		      <h5><a href="#">Click here for receipt</a></h5>
-		    </div>
-		  </div>
-		
+			<div class="affiliateupcomingjobsection">
+				<h2>Completed Job</h2>
+					<% @completedjob.each do |t| %>
+					  <%= link_to job_path(t.id) do %>
+				      <div class="thumbnail jobstyle showalljobthumbnail">
+				        <div class="thumbnailhoverclass">
+				          <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+				        <div class="overlay">
+				          <div class="overlaytext"><%= t.category %></div>
+				        </div>
+				        </div>
+				        <h5 id="showjobdatetime"><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P")%></h5>
+				        <div class="caption">
+				          <div class="captionPriceCategory">
+				            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+				          </div>
+				        </div>
+				      </div>
+				      <% end %>
+				    <% end %>
+				    
+			</div>
 		<% end %>
 	</div>
+</div>
+
+
+	
+</div>
+	
+
 
 <%= render partial: "/layouts/footer" %>

@@ -5,4 +5,5 @@ class Affiliate < ApplicationRecord
 	enum verification_status: { Unverified: false, Verified: true}
 	serialize :verification_documents, Array
 	mount_uploaders :verification_documents, VerificationDocumentsUploader
+
 end

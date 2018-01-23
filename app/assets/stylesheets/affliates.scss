@@ -3,13 +3,16 @@
 }
 
 .affiliatecoursesection{
-  background-color: lightgray;
+  background-image: image-url('stickynote.png');
+  background-size: cover;
   padding: 15px; 
+  padding-top: 40px;
 }
 
 .affiliatecoursesection h3{
   font-size: 1.5em;
   font-weight: 900;
+  text-decoration: underline;
 }
 
 .affiliatecoursesectionul{
@@ -19,6 +22,9 @@
 
 .affiliatecoursesectionul li{
   list-style: none;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-top: 5px;
 }
 
 .affiliatecoursesectionbuttonli{
@@ -26,6 +32,7 @@
   width:300px;
   padding-bottom: 40px;
   margin-top: 20px;
+  margin-left: 20px;
 }
 
 .affiliatecoursesectionbutton{
@@ -76,10 +83,52 @@
 
 .affiliateupcomingjobsection h2{
   color: white;
+  text-decoration: underline;
+  font-weight: 900;
 }
 
 #showjobdatetime{
   text-align: center;
   padding-top: 5px;
   color:#f57224;
+}
+
+/*Review section*/
+
+.reviewsection{
+  display: block;
+  background-image: image-url('blackboard.png');
+  background-size: cover;
+}
+
+.reviewsectionuserlogo{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.reviewsectionheader{
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.fixheightforreviewsection{
+  height:130px;
+}
+
+.reviewsectionword{
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.reviewsectionuserlogoposition{
+  display: flex;
+  justify-content: center;
+}
+
+.reviewsectioncomment{
+  padding-top: 5px;
+  color: #FFFFFF;
 }
