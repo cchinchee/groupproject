@@ -1,0 +1,41 @@
+.background {
+	
+	height: 485px;
+	display: inline-block;
+	background-image: url('picture4.jpg');
+}
+
+.form-container {
+	width: 900px;
+	margin:auto;
+}
+
+h1.text, h2.sub-title {
+	color:#6F3A8F;
+}
+
+h1.text {
+	margin-top: 70px;
+}
+
+.text-right {
+	margin-right: 50px;
+}
+
+.btn-apply {
+  border: 1px solid #6F3A8F;
+  border-color: #6F3A8F;
+  background-color: #6F3A8F;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  font-size: 19px;
+  line-height: 22px;
+  padding-left: 24px;
+  padding-right: 24px;
+ 
+  padding-top:12px;
+  padding-bottom: 12px;
+  display: inline;
+  color:white;
+}
