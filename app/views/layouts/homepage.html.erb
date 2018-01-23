@@ -95,7 +95,17 @@
       <%= link_to job_path(t.id) do %>
       <div class="thumbnail jobstyle">
         <div class="thumbnailhoverclass">
-        <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <% if t.category == "Cleaning" %>
+          <%= image_tag("cleaningservice.jpg", class:"thumnail-image")%>
+        <% elsif t.category == "Catering" %>
+          <%= image_tag("catering.jpg", class:"thumnail-image")%>
+        <% elsif t.category == "Mover" %>
+          <%= image_tag("mover.jpg", class:"thumnail-image")%>
+        <% elsif t.category == "Plumbing" %>
+          <%= image_tag("plumbing.png", class:"thumnail-image")%>
+        <% elsif t.category == "Gadget Repair" %>
+          <%= image_tag("gadgetservice.jpg", class:"thumnail-image")%>
+        <% end %>
         <div class="overlay">
           <div class="overlaytext"><%= t.start_date %></div>
         </div>
@@ -113,7 +123,17 @@
       <% @job.each do |t| %>
       <div class="thumbnail jobstyle">
         <div class="thumbnailhoverclass">
-        <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+        <% if t.category == "Cleaning" %>
+          <%= image_tag("cleaningservice.jpg", class:"thumnail-image")%>
+        <% elsif t.category == "Catering" %>
+          <%= image_tag("catering.jpg", class:"thumnail-image")%>
+        <% elsif t.category == "Mover" %>
+          <%= image_tag("mover.jpg", class:"thumnail-image")%>
+        <% elsif t.category == "Plumbing" %>
+          <%= image_tag("plumbing.png", class:"thumnail-image")%>
+        <% elsif t.category == "Gadget Repair" %>
+          <%= image_tag("gadgetservice.jpg", class:"thumnail-image")%>
+        <% end %>
         <div class="overlay">
           <div class="overlaytext"><%= t.category %></div>
         </div>
