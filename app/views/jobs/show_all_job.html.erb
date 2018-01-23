@@ -8,24 +8,17 @@
       <%= link_to job_path(t.id) do %>
       <div class="thumbnail jobstyle showalljobthumbnail">
         <div class="thumbnailhoverclass">
-
-        <!-- condition starts here -->
-        <% case @job.status %>
-          <% when "Cleaning" %>
-            <% showPic = "cleaningservice.jpg"  %>
-          <% when "Catering" %>
-            <% showPic = "catering.jpg"  %>
-          <% when "Mover" %>
-            <% showPic = "mover.jpg" %>
-          <% when "Plumbing" %>
-            <% showPic = "plumbing.png" %>
-          <% when "Gadge Repair" %>
-            <% showPic = "gadgetservice.jpg" %>
-        <% end %>        
-
-        <!-- condition ends here -->
-
-          <%= image_tag(showPic, class:"thumnail-image")%>
+          <% if t.category == "Cleaning" %>
+            <%= image_tag("cleaningservice.jpg", class:"thumnail-image")%>
+          <% elsif t.category == "Catering" %>
+            <%= image_tag("catering.jpg", class:"thumnail-image")%>
+          <% elsif t.category == "Mover" %>
+            <%= image_tag("mover.jpg", class:"thumnail-image")%>
+          <% elsif t.category == "Plumbing" %>
+            <%= image_tag("plumbing.png", class:"thumnail-image")%>
+          <% elsif t.category == "Gadget Repair" %>
+            <%= image_tag("gadgetservice.jpg", class:"thumnail-image")%>
+          <% end %>
         <div class="overlay">
           <div class="overlaytext"><%= t.category %></div>
         </div>
