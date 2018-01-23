@@ -1,59 +1,134 @@
-.background {
-	
-	height: 500px;
-	display: inline-block;
-	background-image: url('picture4.jpg');
+#row2{
+  margin-top: 20px;
 }
 
-h1.text {
-	margin-top: 100px;
-	color:#6F3A8F;
+.affiliatecoursesection{
+  background-image: image-url('stickynote.png');
+  background-size: cover;
+  padding: 15px; 
+  padding-top: 40px;
 }
 
-.text-right {
-	font-family: 'Sintony', sans-serif;
-	margin-right: 70px;
-	color: #FAFAFA;
-}
-.form-container {
-	width: 700px;
-	margin:auto;
+.affiliatecoursesection h3{
+  font-size: 1.5em;
+  font-weight: 900;
+  text-decoration: underline;
 }
 
-h2.sub-title{
-	color:#6F3A8F;
+.affiliatecoursesectionul{
+  padding-left: 0;
+  text-align: left;
 }
 
-.btn-apply {
+.affiliatecoursesectionul li{
+  list-style: none;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-top: 5px;
+}
+
+.affiliatecoursesectionbuttonli{
+  color: #000000;
+  width:300px;
+  padding-bottom: 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.affiliatecoursesectionbutton{
+  position: relative;
+  color:#000000;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 0;
   font-family: 'Poppins', sans-serif;
-  border: 1.5px solid transparent;
-  border-color: #6F3A8F;
-  border-radius: 4px;
-  cursor: pointer;
-  background:#6F3A8F;
-  font-size: 15px;
-  line-height: 22px;
-  padding-left: 24px;
-  padding-right: 24px;
-  font-weight: 700;
-  padding-top:10px;
-  padding-bottom: 12px;
-  display: inline;
-  color:#ffffff;
+  font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: lightgray;
 }
 
-.form-text {
-	font-family: 'Poppins', sans-serif;
+.affiliatecoursesectionbutton:hover{
+  color: #000000;
+  text-decoration: none;
 }
 
-.portfolio {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.affiliatecoursesectionbutton:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #1D8BDD;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
 }
 
+.affiliatecoursesectionbutton:hover:before{
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
 
-.thumbnail-review{
-   border-radius: 50%;
-   width:100px;
-   height:100px;
- }
+#col2{
+  background-image: image-url('woodenboard.jpg');
+  background-size: cover; 
+}
+
+.affiliateupcomingjobsection h2{
+  color: white;
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+#showjobdatetime{
+  text-align: center;
+  padding-top: 5px;
+  color:#f57224;
+}
+
+/*Review section*/
+
+.reviewsection{
+  display: block;
+  background-image: image-url('blackboard.png');
+  background-size: cover;
+}
+
+.reviewsectionuserlogo{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.reviewsectionheader{
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.fixheightforreviewsection{
+  height:130px;
+}
+
+.reviewsectionword{
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.reviewsectionuserlogoposition{
+  display: flex;
+  justify-content: center;
+}
+
+.reviewsectioncomment{
+  padding-top: 5px;
+  color: #FFFFFF;
+}

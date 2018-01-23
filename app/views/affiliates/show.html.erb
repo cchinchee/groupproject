@@ -1,95 +1,172 @@
 <%= render partial: "/layouts/navbar" %>
 
-<div class="container ">
-	<div class="row">
-		<div class="col-md-4">
-			<div><%= image_tag("userprofile.jpg",class:"thumbnail")%></div>
-		</div>
-		<div class="col-md-8 portfolio">
-			<div class="thumnail">
-				<div class="showpage-header row">
-					<h4 class="col-md-6 text-center">1<%= @job.count %> <br>	Completed job </h4>
-					<% if affiliate_signed_in? %>
-					<h4 class="col-md-6 text-center">RM2850 <br> Pension Fund (5 Years) </h4>
-					<% end  %>
+<div class="row">
+		<div class="col-md-6">
+			<div class="userinfosection">
+				<div><%= image_tag("userprofile.jpg",class:"userprofilepicture")%></div>
+				<div class="userprofileinfopart">
+					<h1><%= current_affiliate.first_name.upcase %> <%= current_affiliate.last_name.upcase %></h1>
+					<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
 				</div>
-				<h1 class="showpage-name"><%= @affiliate.first_name %> <%= @affiliate.last_name %></h1>
-				<h4 class="showpage-verify">Verified info</h4>
-				<h4><i class="fa fa-check" aria-hidden="true"></i>   <%= @affiliate.email %></h4>
-				<h4><i class="fa fa-check" aria-hidden="true"></i>   <%= @affiliate.address %>, <%= @affiliate.postcode %>, <%= @affiliate.city %>, <%= @affiliate.state %>.</h4>
-				<h2>About Me!</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-			</div>	
+			</div>
 		</div>
-	</div>
-	<div>
-		<h3 class="showpage-title">Completed Training Course</h3>
-		<ul class="list-group">
-	    <li class="list-group-item">Professional Cleaning Services</li>
-	    <li class="list-group-item">Cooking Class - Western food</li>
-	    <% if affiliate_signed_in? %>
-	    	<li class="list-group-item"><%= button_to "Training Portal", "/training_courses", method: :get %></li>
-			<% end  %>
-	  </ul>
-	</div>
-	<div>
-		<% if affiliate_signed_in? %>
-			<h3 class="showpage-title">Upcoming Job</h3>
-			<% @requested = @job.where(status: "1") %>
-			<% @requested.each do |t| %>
-			  <%= link_to job_path(t.id) do %>
-			  <div class="thumbnail jobstyle">
-			    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-			    <div class="caption">
-			      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
-			      <h5><%= t.category %></h5>
-			      <h5>RM <%= t.price %></h5>
-			      <h5><%= t.status %> by <%= link_to "t.affiliate.first_name" %></h5>
-			    </div>
-			  </div>
-			  <% end %>
-			<% end %>
-		<% else %>
-			<h3 class="showpage-title">Completed Job</h3>
-			<% @requested = @job.where(status: "2") %>
-			<% @requested.each do |t| %>
-			  <%= link_to job_path(t.id) do %>
-			  <div class="thumbnail jobstyle">
-			    <%= image_tag("cooking.jpg", class:"thumnail-image")%>
-			    <div class="caption">
-			      <h5><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P") %></h5>
-			      <h5><%= t.category %></h5>
-			    </div>
-			  </div>
-			  <% end %>
-			<% end %>
-		<% end %>
+		<div class="col-md-6">
+			<div class="usercontactsection">
+				<h4 class="usercontactsectionemail"><%= image_tag("002-email.png")%><%= current_affiliate.email %></h4>
+				<h4><%= image_tag("001-home.png") %><%= current_affiliate.address %>, <%= current_affiliate.postcode %>, <%= current_affiliate.city %>, <%= current_affiliate.state %>.</h4>
+				<ul class="usercontactsectionul">
+					<li><h5><%= @job.count %></br>Completed Job</h5></li>
+					<% if affiliate_signed_in? %>
+						<li><h5>RM <%= @fee %></br>Profits (87%)</h5></li>
+						<li><h5>RM <%= @pension %></br>Pension Fund (8%)</h5></li>
+				</ul>
+			</div>
+		</div>
+</div>
 
+</br>
+
+<div class="row" id="row2">
+	<div class="col-md-3">
+		<div class="affiliatecoursesection">
+			<h3>Completed Training Course</h3>
+			<ul class="affiliatecoursesectionul">
+		    	<li>1) Professional Cleaning Services</li>
+		    	<li>2) Cooking Class - Western food</li>
+		    	<li>3) Certified Plumbing</li>
+		    	<li>4) Electronic Gadget Repair</li>
+		    	<li>5) Certified Mover</li>
+		    	</br>
+		    	<% if affiliate_signed_in? %>
+		    		<li class="affiliatecoursesectionbuttonli">LINK TO : <%= link_to "Training Portal", "/training_courses", class:"affiliatecoursesectionbutton"%></li>
+				<% end  %>
+		  	</ul>
+	  	</div>
 	</div>
-	<div>
-		<h3 class="showpage-title">Reviews</h3>
-		<h5>Reviews from User</h5>
-		<div class="review row"></div>
-		<% @requested = @job.where(status: "3")  %>
-		<% @requested.each do |t| %>
-			<div class="col-md-2">
-				<%= image_tag("userprofile.jpg",class:"thumbnail-review")%>
-				<p style="padding-left: 30px;">Kelvin</p>
+
+	<div class="col-md-9" id="col2">
+		<% if affiliate_signed_in? %>
+			<div class="affiliateupcomingjobsection">
+				<h2>Upcoming Job</h2>
+					<% @upcomingjob.each do |t| %>
+					  <%= link_to job_path(t.id) do %>
+				      <div class="thumbnail jobstyle showalljobthumbnail">
+				        <div class="thumbnailhoverclass">
+				          <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+				        <div class="overlay">
+				          <div class="overlaytext"><%= t.category %></div>
+				        </div>
+				        </div>
+				        <h5 id="showjobdatetime"><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P")%></h5>
+				        <div class="caption">
+				          <div class="captionPriceCategory">
+				            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+				          </div>
+				        </div>
+				      </div>
+				      <% end %>
+				    <% end %>
+				    <div id='paginate'>
+    					<div class='container paginatecontainer' id="showalljobpaginatecontainer">
+    	  					<%= paginate @upcomingjob,outer_window: 3%>  
+    					</div>
+  					</div>
 			</div>
-			<div class="col-md-8">
-				<p>Provided a very good service, he is a hard working person.</p>
-				<br>
-				<p>For <%= t.category %>, <%= t.start_date.strftime("%d %b %Y") %></p>
-				<br>
-				
-				<hr>
+
+			<div class="affiliateupcomingjobsection">
+				<h2>Completed Job</h2>
+					<% @completedjob.each do |t| %>
+					  <%= link_to job_path(t.id) do %>
+				      <div class="thumbnail jobstyle showalljobthumbnail">
+				        <div class="thumbnailhoverclass">
+				          <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+				        <div class="overlay">
+				          <div class="overlaytext"><%= t.category %></div>
+				        </div>
+				        </div>
+				        <h5 id="showjobdatetime"><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P")%></h5>
+				        <div class="caption">
+				          <div class="captionPriceCategory">
+				            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+				          </div>
+				        </div>
+				      </div>
+				      <% end %>
+				    <% end %>
+				    <div id='paginate'>
+    					<div class='container paginatecontainer' id="showalljobpaginatecontainer">
+    	  					<%= paginate @completedjob,outer_window: 3%>  
+    					</div>
+  					</div>
 			</div>
-		</div>
-		
+
+		<% else %>
+			<div class="affiliateupcomingjobsection">
+				<h2>Completed Job</h2>
+					<% @completedjob.each do |t| %>
+					  <%= link_to job_path(t.id) do %>
+				      <div class="thumbnail jobstyle showalljobthumbnail">
+				        <div class="thumbnailhoverclass">
+				          <%= image_tag("cooking.jpg", class:"thumnail-image")%>
+				        <div class="overlay">
+				          <div class="overlaytext"><%= t.category %></div>
+				        </div>
+				        </div>
+				        <h5 id="showjobdatetime"><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P")%></h5>
+				        <div class="caption">
+				          <div class="captionPriceCategory">
+				            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+				          </div>
+				        </div>
+				      </div>
+				      <% end %>
+				    <% end %>
+				    <div id='paginate'>
+    					<div class='container paginatecontainer' id="showalljobpaginatecontainer">
+    	  					<%= paginate @completedjob,outer_window: 3%>  
+    					</div>
+  					</div>
+			</div>
 		<% end %>
 	</div>
 </div>
+
+<div class="row reviewsection">
+	<div>
+		<h3 class="reviewsectionheader">Reviews from User</h3>
+	</div>
+
+	<div class="row">
+			<div class="col-md-4">
+				<% @review.each do |t| %>
+					<div class="fixheightforreviewsection">
+						<div class="reviewsectionuserlogoposition"><%= image_tag("userprofile.jpg",class:"reviewsectionuserlogo")%></div>
+						<div class="reviewsectionword"><h6>Review by <%= t.user.first_name %></h6></div>
+					</div>
+				<% end %>
+			</div>
+
+			<div class="col-md-8">
+					<% @review.each do |t| %>
+					<div class="fixheightforreviewsection">
+						<p class="reviewsectioncomment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<% end %>
+			</div>
+	</div>
+	
+</div>
+	
 
 
 <%= render partial: "/layouts/footer" %>

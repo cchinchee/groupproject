@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		
-		@job = Job.where(user_id: params[:id])
+		@job = Job.where(user_id: params[:id]).order(updated_at: :desc).page(params[:page]).per(4)
+		@completedjob = @job.where(status: 3)
 		render 'users/show'
 	end
 
