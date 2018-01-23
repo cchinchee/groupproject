@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180120162538) do
     t.string "state"
     t.boolean "verification_status", default: false
     t.json "verification_documents"
+    t.json "affiliates_avatar"
     t.integer "role", default: 0
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20180120162538) do
     t.string "city"
     t.string "state"
     t.string "postcode"
+    t.json "users_avatar"
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false

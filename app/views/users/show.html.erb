@@ -3,7 +3,7 @@
 <div class="row">
 		<div class="col-md-6">
 			<div class="userinfosection">
-				<div><%= image_tag("userprofile.jpg",class:"userprofilepicture")%></div>
+				<div><%= image_tag(@user.users_avatar,class:"userprofilepicture")%></div>
 				<div class="userprofileinfopart">
 					<h1><%= current_user.first_name.upcase %> <%= current_user.last_name.upcase %></h1>
 					<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -85,15 +85,16 @@
 				        <div class="overlay">
 				          <div class="overlaytext"><%= t.category %></div>
 				        </div>
+				      <% end %>
 				        </div>
 				        <h5 id="showjobdatetime"><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P")%></h5>
 				        <div class="caption">
 				          <div class="captionPriceCategory">
 				            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
+				            <h5 id="jobthumbnailPrice">Accepted by <%= link_to t.affiliate.first_name, affiliate_path(t.affiliate_id)%></h5>
 				          </div>
 				        </div>
 				      </div>
-				      <% end %>
 				    <% end %>
 				    
 			</div>

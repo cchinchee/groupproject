@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   include Clearance::User
   has_many :authentications, dependent: :destroy
-    has_many :jobs
+  has_many :jobs
+  mount_uploader :users_avatar, VerificationDocumentsUploader
 
 
     def self.create_with_auth_and_hash(authentication, auth_hash)

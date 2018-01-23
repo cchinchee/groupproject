@@ -11,6 +11,7 @@ class CreateAffiliates < ActiveRecord::Migration[5.1]
       t.string :state
       t.boolean :verification_status, default: false
       t.json :verification_documents
+      t.json :affiliates_avatar
       t.integer :role, default: 0
       t.string :password_digest
 

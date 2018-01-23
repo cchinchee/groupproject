@@ -3,7 +3,7 @@
 <div class="row">
 		<div class="col-md-6">
 			<div class="userinfosection">
-				<div><%= image_tag("userprofile.jpg",class:"userprofilepicture")%></div>
+				<div><%= image_tag(@affiliate.affiliates_avatar,class:"userprofilepicture")%></div>
 				<div class="userprofileinfopart">
 					<h1><%= @affiliate.first_name.upcase %> <%= @affiliate.last_name.upcase %></h1>
 					<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
