@@ -20,7 +20,7 @@
 				<h4 class="usercontactsectionemail"><%= image_tag("002-email.png")%><%= @affiliate.email %></h4>
 				<h4><%= image_tag("001-home.png") %><%= @affiliate.address %>, <%= @affiliate.postcode %>, <%= @affiliate.city %>, <%= @affiliate.state %>.</h4>
 				<ul class="usercontactsectionul">
-					<li><h5><%= @job.count %></br>Completed Job</h5></li>
+					<li><h5><%= @job.completed.count %></br>Completed Job</h5></li>
 					<% if affiliate_signed_in? %>
 					<li><h5>RM <%= @fee %></br>Profits (87%)</h5></li>
 					<li><a class="tostatementlink" href="/statement"><h5>RM <%= @pension %></br>Pension Fund (8%)</h5></li></a>
