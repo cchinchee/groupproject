@@ -166,7 +166,7 @@
 			<div class="col-md-4">
 				<% @review.each do |t| %>
 					<div class="fixheightforreviewsection">
-						<div class="reviewsectionuserlogoposition"><%= image_tag("userprofile.jpg",class:"reviewsectionuserlogo")%></div>
+						<div class="reviewsectionuserlogoposition"><%= image_tag(@affiliate.affiliates_avatar,class:"reviewsectionuserlogo")%></div>
 						<div class="reviewsectionword"><h6>Review by <%= t.user.first_name %></h6></div>
 					</div>
 				<% end %>
