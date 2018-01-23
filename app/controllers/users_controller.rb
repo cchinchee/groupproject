@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@user = User.find_by(id: params[:id])
 		@job = Job.where(user_id: params[:id]).order(updated_at: :desc).page(params[:page]).per(4)
 		@completedjob = @job.where(status: 3)
 		render 'users/show'
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:first_name, :last_name, :email, :phone, :address, :city, :state, :postcode, :password)
+		params.require(:user).permit(:first_name, :last_name, :email, :phone, :address, :city, :state, :postcode, :password, :users_avatar)
 	end
 
 end

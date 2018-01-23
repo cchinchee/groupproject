@@ -58,11 +58,11 @@ class JobsController < ApplicationController
         )
 
         if result.success?
-            # @job.paid!
+            @job.paid!
             redirect_to job_path(@job.id)
-            puts "a"
+            
         else
-            puts "b"
+            
             redirect_to :root
         end         
     end

@@ -51,8 +51,13 @@
     </div>
 
     <div class="text-field form-group form-text">
+        <p>Please upload profile photo for verfification.
+            <%= form.file_field :affiliates_avatar%></p>   
+    </div>
+
+    <div class="text-field form-group form-text">
     	<p>Please provide supporting documents for verfification.
-    		<%= form.file_field :verfification_documents, multiple: true%></p>	
+    		<%= form.file_field :verification_documents, multiple: true%></p>	
     </div>	
 
     <div class="text-field form-group">

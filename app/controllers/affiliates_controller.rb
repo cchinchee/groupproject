@@ -50,9 +50,13 @@ class AffiliatesController < ApplicationController
 		session.clear
 		redirect_to root_path
 	end
+
+	def statement
+		render "/affiliates/statement"
+	end	
 end
 
 private
 def affiliate_params
-	params.require(:affiliate).permit(:first_name, :last_name, :password, :email, :phone, :address, :city, :postcode, :state, {verification_documents: []})
+	params.require(:affiliate).permit(:first_name, :last_name, :password, :email, :phone, :address, :city, :postcode, :state, {verification_documents: []}, :affiliates_avatar)
 end
