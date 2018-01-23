@@ -24,7 +24,7 @@
 
 	<div class="payment-container">  
 
-		<%= form_for :checkout_form, url: "/jobs/#{@job.id}/payment/checkout", html: { id: "cardForm"}, data: { turbolinks:false} do |form| %>
+		<%= form_for :checkout_form, url: "/jobs/#{@job.id}/payment/checkout", html: { id: "cardForm"} do |form| %>
 
 			<%= form.label :card_number, "Credit Card Number", html: {class: "hosted-fields--label"} %>
 			<div id="card-number" class="hosted-field"></div>
