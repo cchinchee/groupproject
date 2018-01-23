@@ -19,16 +19,18 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="nav navbar-nav navbar-right-item"><%= link_to "Join Us", affiliate_sign_up_path, class: "modal-btn navbar-right-1" %></li>
-        <li class="nav navbar-nav navbar-right-item"><%= link_to "Partnership", "/companies", class:"modal-btn navbar-right-1" %></li>
 
         <% if signed_in? %>
+        <li class="nav navbar-nav navbar-right-item"><%= link_to 'Log In: User',disabled: true, class: "modal-btn navbar-right-1" %></li>
         <li class="nav navbar-nav navbar-right-item"><%= link_to 'Sign out', sign_out_path, method: :delete, class: "modal-btn navbar-right-1" %></li>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1 addpointercursor" id="userlogostyle" href="/users/<%= current_user.id %>/show"><%= image_tag("userprofile.jpg",class:"userlogo")%></a></li>
         <% elsif affiliate_signed_in? %>
+        <li class="nav navbar-nav navbar-right-item"><%= link_to 'Log In: Affiliate',disabled: true, class: "modal-btn navbar-right-1" %></li>
         <li class="nav navbar-nav navbar-right-item"><%= link_to 'Sign out', affiliate_sign_out_path, class: "modal-btn navbar-right-1" %></li>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1 addpointercursor" id="userlogostyle" href="/affiliates/<%= current_affiliate.id %>"><%= image_tag("userprofile.jpg",class:"userlogo")%></a></li>
         <% elsif !signed_in? && !affiliate_signed_in? %>
+        <li class="nav navbar-nav navbar-right-item"><%= link_to "Join Us", affiliate_sign_up_path, class: "modal-btn navbar-right-1" %></li>
+        <li class="nav navbar-nav navbar-right-item"><%= link_to "Partnership", "/companies", class:"modal-btn navbar-right-1" %></li>
         <li class="nav navbar-nav navbar-right-item"><a class="modal-btn navbar-right-1 addpointercursor" data-toggle="modal" data-target="#signUpModalMain">Sign Up</a></li>
         <li><a class="modal-btn navbar-right-1 addpointercursor" data-toggle="modal" data-target="#logInModal">User Login</a></li>
         <li><a class="modal-btn navbar-right-1 addpointercursor" data-toggle="modal" data-target="#affiliatelogInModal">Affiliate Login</a></li>

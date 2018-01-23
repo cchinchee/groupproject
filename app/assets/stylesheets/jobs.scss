@@ -36,7 +36,7 @@
 
 .sectionstyle{
 	text-align: center;
-	height: 600px;
+	/*height: 600px;*/
 	margin-bottom: 25px;	
 }
 
@@ -47,7 +47,8 @@
 
 .rightsectionstyle{
 	background-image: image-url('paper.jpg');
-	background-size: cover;	
+	background-size: cover;
+	height: 600px;	
 }
 
 .leftsectionstyle h1{

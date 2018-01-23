@@ -12,6 +12,8 @@ class JobsController < ApplicationController
 
     def show
         @jobs = Job.where(id: params[:id])
+        @user = Job.find_by(id: params[:id])
+        @userprofile = User.find_by(id: @user.user_id)
         @hash = Gmaps4rails.build_markers(@jobs) do |job, marker|
             marker.lat job.latitude
             marker.lng job.longitude
@@ -57,7 +59,7 @@ class JobsController < ApplicationController
 
         if result.success?
             @job.paid!
-            redirect_to "/job/#{params[:id]}"
+            redirect_to job_path(@job.id)
         else
             redirect_to :root
         end         
