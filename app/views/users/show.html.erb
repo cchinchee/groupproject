@@ -74,7 +74,7 @@
 				          <div class="captionPriceCategory">
 				            <h5 id="jobthumbnailPrice">RM <%= t.price %></h5>
 				            <% if t.status == "pending" %>
-				            	<h5 id="jobthumbnailPrice">Awaiting Acceptance %></h5>
+				            	<h5 id="jobthumbnailPrice">Awaiting Acceptance</h5>
 				            <% else %>
 				            	<h5 id="jobthumbnailPrice">Accepted by <%= link_to t.affiliate.first_name, affiliate_path(t.affiliate_id)%></h5>
 				            <% end %>
