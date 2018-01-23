@@ -50,6 +50,10 @@ class AffiliatesController < ApplicationController
 		session.clear
 		redirect_to root_path
 	end
+
+	def statement
+		render "/affiliates/statement"
+	end	
 end
 
 private

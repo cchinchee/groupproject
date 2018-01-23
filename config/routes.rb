@@ -47,6 +47,6 @@ Rails.application.routes.draw do
   get "/jobs/:id/payment" => "jobs#payment"
   post "/jobs/:id/payment/checkout" => "jobs#checkout"
 
-  get "/affiliates/:id/statement" => "affiliates#statement"
+  get "/statement" => "affiliates#statement", as: "affiliate_statement"
 
 end
