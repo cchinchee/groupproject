@@ -57,7 +57,7 @@
 		<% if signed_in? && @job.user.id == current_user.id %>
 			<% if @job.status == "accepted" %>
 				<div class="reservebuttonsection">
-					<%= link_to "Make Payment", "/jobs/#{@job.id}/payment" %>
+					<%= link_to "Make Payment", "/jobs/#{@job.id}/payment" , class:"reservebutton" %>
 				</div>
 			<% elsif @job.status == "paid" %>
 				<div class="reservebuttonsection">

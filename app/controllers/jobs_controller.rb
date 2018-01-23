@@ -57,7 +57,7 @@ class JobsController < ApplicationController
 
         if result.success?
             @job.paid!
-            redirect_to :root
+            redirect_to "/job/#{params[:id]}"
         else
             redirect_to :root
         end         
