@@ -14,8 +14,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
-		@job = Job.where(user_id: params[:id]).order(updated_at: :desc).page(params[:page]).per(4)
-		@completedjob = @job.where(status: 3)
+		@job = Job.where(user_id: params[:id]).where.not(status: "completed").order(updated_at: :desc).page(params[:page]).per(4)
+		@completedjob = Job.where(user_id: params[:id], status: "completed")
 		render 'users/show'
 	end
 
