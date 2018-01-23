@@ -67,8 +67,7 @@
 		<% if signed_in? && @job.user.id == current_user.id %>
 			<% if @job.status == "accepted" %>
 				<div class="reservebuttonsection">
-					<%= link_to "Make Payment", "/jobs/#{@job.id}/payment" , class:"reservebutton" %>
-				</div>
+					<%= link_to "Make Payment", "/jobs/#{@job.id}/payment" , class:"reservebutton", "data-turbolinks" => false %>
 			<% elsif @job.status == "paid" %>
 				<div class="reservebuttonsection">
 					<%= link_to "Acknowledge Job Completion", job_path, method: :patch, class: "reservebutton" %>
