@@ -149,3 +149,68 @@ a.reservebutton{
 	color: red;
 	text-decoration: none;
 }
+
+/*to display the image at post job page*/
+
+.cateringcss{
+	height: 180px; 
+	width: 180px;
+	background:image-url('catering.jpg');
+	background-repeat: no-repeat; 
+	background-position: center; 
+	background-size: cover;
+	border-radius: 50%; 
+	box-sizing: border-box; 
+	font-size: 0px;
+}
+
+.cleaningcss{
+	height: 180px; 
+	width: 180px;
+	background:image-url('cleaningservice.jpg');
+	background-repeat: no-repeat; 
+	background-position: center; 
+	background-size: cover;
+	border-radius: 50%; 
+	box-sizing: border-box; 
+	font-size: 0px;
+}
+
+.movercss{
+	height: 180px; 
+	width: 180px;
+	background:image-url('mover.jpg');
+	background-repeat: no-repeat; 
+	background-position: center; 
+	background-size: cover;
+	border-radius: 50%; 
+	box-sizing: border-box; 
+	font-size: 0px;
+}
+
+.plumbingcss{
+	height: 180px; 
+	width: 180px;
+	background:image-url('plumbing.png');
+	background-repeat: no-repeat; 
+	background-position: center; 
+	background-size: cover;
+	border-radius: 50%; 
+	box-sizing: border-box; 
+	font-size: 0px;
+}
+
+.gadgetcss{
+	height: 180px; 
+	width: 180px;
+	background:image-url('gadgetservice.jpg');
+	background-repeat: no-repeat; 
+	background-position: center; 
+	background-size: cover;
+	border-radius: 50%; 
+	box-sizing: border-box; 
+	font-size: 0px;
+}
+
+ 
+ 
