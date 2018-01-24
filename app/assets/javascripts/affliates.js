@@ -4,25 +4,25 @@
 document.addEventListener("turbolinks:load", function(){
 	if (document.querySelector("#affiliate_state")){
 		
-		const selectedState = document.getElementById("affiliate_state")
-		const displayCities = document.getElementById("affiliate_city")
-		const showCities = document.getElementById("show-city-affiliate")
-		const token = document.getElementsByName("csrf-token")[0].content
+		var selectedState = document.getElementById("affiliate_state")
+		var displayCities = document.getElementById("affiliate_city")
+		var showCities = document.getElementById("show-city-affiliate")
+		var token = document.getElementsByName("csrf-token")[0].content
 
 		selectedState.addEventListener("change", function(){
 			console.log(showCities)
 			showCities.style.display = "block"
-			let request = new XMLHttpRequest();
+			var request = new XMLHttpRequest();
 			request.onreadystatechange = function (response){
 				if (request.readyState === XMLHttpRequest.DONE && request.status === 200){
-					let cities = JSON.parse(request.responseText).available_cities
+					var cities = JSON.parse(request.responseText).available_cities
 
 						while (displayCities.hasChildNodes()){
 							displayCities.removeChild(displayCities.lastChild)
 						}
 
-						for (let i = 0; i < cities.length; i++){
-							let opt = document.createElement('option')
+						for (var i = 0; i < cities.length; i++){
+							var opt = document.createElement('option')
 							opt.value = cities[i]
 							opt.innerHTML = cities[i]
 							displayCities.appendChild(opt);
