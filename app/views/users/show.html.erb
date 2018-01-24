@@ -51,7 +51,7 @@
 				<h2>Requested Job</h2>
 					<% @job.each do |t| %>
 					  <%= link_to job_path(t.id) do %>
-				      <div class="thumbnail jobstyle showalljobthumbnail">
+				    <div class="thumbnail jobstyle showalljobthumbnail">
 				        <div class="thumbnailhoverclass">
 								<% if t.category == "Cleaning" %>
 								  <%= image_tag("cleaningservice.jpg", class:"thumnail-image")%>
@@ -68,7 +68,9 @@
 				          <div class="overlaytext"><%= t.category %></div>
 				        </div>
 				      <% end %>
-				        </div>
+				    	</div>
+				   	</div>
+
 				        <h5 id="showjobdatetime"><%= t.start_date.strftime("%d %b %Y") %>, <%= t.start_time.strftime("%l.%M %P")%></h5>
 				        <div class="caption">
 				          <div class="captionPriceCategory">
@@ -80,9 +82,7 @@
 				            <% end %>
 				          </div>
 				        </div>
-				      </div>
-				    <% end %>
-				    
+				    <% end %>				    
 			</div>
 
 			<div class="affiliateupcomingjobsection">
@@ -121,11 +121,6 @@
 		<% end %>
 	</div>
 </div>
-
-
 	
-</div>
-	
-
 
 <%= render partial: "/layouts/footer" %>

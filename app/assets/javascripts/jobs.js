@@ -20,25 +20,25 @@ document.addEventListener("turbolinks:load", function(){
 
 	if (document.querySelector("#job_state")){
 
-		const selectedState = document.querySelector("#job_state")
-		const displayCities = document.querySelector("#job_city")
-		const showCities = document.querySelector("#show-city-job")
-		const token = document.getElementsByName("csrf-token")[0].content
+		var selectedState = document.querySelector("#job_state")
+		var displayCities = document.querySelector("#job_city")
+		var showCities = document.querySelector("#show-city-job")
+		var token = document.getElementsByName("csrf-token")[0].content
 
 		selectedState.addEventListener("change", function(){
 
 			showCities.style.display = "block"
-			let request = new XMLHttpRequest();
+			var request = new XMLHttpRequest();
 			request.onreadystatechange = function (response){
 				if (request.readyState === XMLHttpRequest.DONE && request.status === 200){
-					let cities = JSON.parse(request.responseText).available_cities
+					var cities = JSON.parse(request.responseText).available_cities
 
 						while (displayCities.hasChildNodes()){
 							displayCities.removeChild(displayCities.lastChild)
 						}
 
-						for (let i = 0; i < cities.length; i++){
-							let opt = document.createElement('option')
+						for (var i = 0; i < cities.length; i++){
+							var opt = document.createElement('option')
 							opt.value = cities[i]
 							opt.innerHTML = cities[i]
 							displayCities.appendChild(opt);
@@ -54,20 +54,20 @@ document.addEventListener("turbolinks:load", function(){
 	}
 
 	if (document.querySelector(".choose-service")){
-			let currentBox = document.querySelector(".choose-service .jobimage.chooseThis")
-			let container = document.querySelector(".choose-service")
-			let priceInput = document.getElementById("job_price")
-			let categoryInput = document.getElementById("job_category")
+			var currentBox = document.querySelector(".choose-service .jobimage.chooseThis")
+			var container = document.querySelector(".choose-service")
+			var priceInput = document.getElementById("job_price")
+			var categoryInput = document.getElementById("job_category")
 			
 			container.addEventListener("click", function (event){
 				fired = true
-				let target = event.target
-				let currentValue = target.value
-				let finalPrice = ""
-				let array_of_images = document.getElementsByClassName("jobimage")
-				let array_of_descriptions = document.getElementsByClassName("description-price")
+				var target = event.target
+				var currentValue = target.value
+				var finalPrice = ""
+				var array_of_images = document.getElementsByClassName("jobimage")
+				var array_of_descriptions = document.getElementsByClassName("description-price")
 
-				let position = 0
+				var position = 0
 				for (i = 0; i < array_of_images.length; i++){
 					if (array_of_images[i] == event.target){
 						position = i
@@ -118,7 +118,7 @@ document.addEventListener("turbolinks:load", function(){
 				container.addEventListener("mouseover", function(event) {
 					array_of_images = document.getElementsByClassName("jobimage")
 					array_of_descriptions = document.getElementsByClassName("description-price")
-					let position = 0
+					var position = 0
 					for (i = 0; i < array_of_images.length; i++){
 						if (array_of_images[i] == event.target){
 							position = i
