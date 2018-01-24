@@ -59,11 +59,11 @@ class JobsController < ApplicationController
 
         if result.success?
             @job.paid!
-            redirect_to job_path(@job.id)
+            redirect_to job_path(@job.id), :flash => { :success => "Transaction Successful!"} 
             
         else
             
-            redirect_to :root
+            redirect_to :root, :flash => { :error => "Transaction failed. Please try again."}
         end         
     end
 
