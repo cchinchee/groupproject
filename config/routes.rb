@@ -49,4 +49,6 @@ Rails.application.routes.draw do
 
   get "/statement" => "affiliates#statement", as: "affiliate_statement"
 
+  get "/information" => "users#information"
+
 end
