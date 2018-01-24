@@ -4,6 +4,7 @@
       authentication = Authentication.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
 
       # if: previously already logged in with OAuth
+      
       if authentication != nil
         user = authentication.user
         authentication.update_token(auth_hash)
